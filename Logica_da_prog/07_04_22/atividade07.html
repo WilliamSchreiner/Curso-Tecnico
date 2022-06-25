@@ -1,0 +1,14 @@
+<script> 
+//7.Crie um programa que receba o valor 
+//do salário e o total de horas trabalhadas no mês. Calcule o valor da hora recebida.
+
+function calcularVH(hora, valor){ 
+
+    let valorHora = valor/ hora;
+    return valorHora;
+}
+let salario = parseInt(prompt('Digete seu salario.'));
+let horaTrab = parseInt(prompt('Digete suas horas trabalhadas.'));
+
+console.log ('Voce ganha R$ ' + calcularVH(horaTrab, salario) + ' por horas trabalhadas');
+</script>

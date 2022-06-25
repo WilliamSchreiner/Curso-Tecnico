@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <header>
+       <title>exemplo 1</title>
+       <meta charset="UTF-8">
+        <style>
+           body, div{background-color: rgb(132 127 216);
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;} 
+           #reprovado{width: 30%;
+            color: red;
+            height:20px;
+            background-color: #FFF;}
+           #aprovado{ width: 30%;
+            color: green;
+            height:20px;
+            background-color: #FFF}
+            #botao{ border-radius: 5% ;
+                border-left: 2px solid blueviolet;
+                border-right: 4px solid blueviolet;
+                border-top: 2px solid rgb(162, 81, 238);
+                border-bottom: 4px solid rgb(162, 81, 238)}
+            #botao:hover{
+                border-radius: 5% ;
+                border-left: 1px solid blueviolet;
+                border-right: 2px solid blueviolet;
+                border-top: 1px solid rgb(162, 81, 238);
+                border-bottom: 2px solid rgb(162, 81, 238)}
+
+            .pergunta{border: 1px solid blueviolet;}
+        </style>
+    </header>
+    <body>
+
+        <label >Qual é o seu nome?</label> </br>
+        <input class="pergunta" id='nome' type="text">
+    </br>
+        <label >Notas 1</label> </br>
+        <input class="pergunta" id='nota1' type="number">
+    </br>
+        <label >Notas 2</label> </br>
+        <input class="pergunta" id='nota2' type="number">
+    </br>
+    <br/>
+    <p> A media para passar é de 7 pontos.</p></br>
+    <p> vemelho = reprovou.</p></br>
+    <p> verde = aprovado.</p></br>
+    <button id="botao" onclick= "calcularNota()" >Calcular</button>
+</br>
+</br>
+<div id="reprovado"></div>
+<div id="aprovado"></div>
+</br>
+        <script> 
+         function calcularNota () {
+             // document.querySelector('#nota1').value é usado para puchar somente os dados inseridos no input localizando pelo #ID dentro do document.querySelector(XX), o .value define como numero o dado puchado.
+            let nome = document.querySelector('#nome').value
+            let nota1 = parseInt(document.querySelector('#nota1').value);
+            let nota2 = parseInt(document.querySelector('#nota2').value);
+
+            let media = (nota1 + nota2) / 2
+
+            if (media < 7){ document.querySelector('#reprovado').innerHTML = nome + " sua media é " + media;}
+            else{document.querySelector('#aprovado').innerHTML = nome + " sua media é " + media;}
+
+            //o .innerHTML= texto , transforma os valor alocado depois do = como o dado para ser mostrado dentro da area do DIV.
+          
+        }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<script> 
+
+
+//5 Crie um programa para calcular desconto de acordo com a forma de pagamento. 
+//Seguindo os seguintes passos:
+
+    //a. Solicitar o valor total da compra;
+    //b. Solicitar a forma de pagamento que terá as seguintes opções: 
+        //1) à vista;
+        //2) cartão de débito; 
+        //3) cartão crédito;
+           //Caso seja selecionado a opção 1 ou 2 o programa deverá aplicar 5% de desconto.
+    // c. O programa irá mostrar em uma janela o valor total da compra, o desconto, 
+           // a forma de pagamento e o valor total a pagar. 
+
+
+let valorDeCompra = parseInt(prompt('Digite aqui o valor de compra:'));
+let formaDePagamento = parseInt(prompt(
+'Classificatoria: 1 = á vista. ' +
+'2 = cartão de débito. ' +
+'3 = cartão de crédito. ' +
+'Digite aqui o tipo de pagamento, pela sua classificatoria: '));
+
+
+if ((formaDePagamento = 1) || (formaDePagamento = 2)){
+valorPerc = valorDeCompra * 0.05;
+valorPercDesc =   valorDeCompra - valorPerc;
+
+console.log('Valor total de compra:' + valorDeCompra);
+console.log('Desconto Total: 5%');
+console.log('forma de pagameto; Tipo: ' + formaDePagamento)
+console.log('Valor a pagar:' + valorPercDesc)}
+
+else if( formaDePagamento = 3){ 
+console.log('Valor total de compra:' + valorDeCompra);
+console.log('Desconto Total: 0%');
+console.log('forma de pagameto; Tipo: ' + formaDePagamento)
+console.log('Valor a pagar:' + valorDeCompra)
+
+}
+
+</script>

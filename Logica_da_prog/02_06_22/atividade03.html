@@ -1,0 +1,16 @@
+<meta charset = 'UTF-8'>
+<script>
+//Crie um programa que leia 3 notas (0-100) de um aluno e calcule a sua média,
+//mostrando uma mensagem no final, de acordo com a média atingida:
+// a) até 49 REPROVADO; b) 50 até 69 RECUPERAÇÃO; c) acima de 70 APROVADO
+
+let notaA = parseFloat(prompt('Qual a sua primeira nota? '));
+let notaB = parseFloat(prompt('Qual a sua segunda nota? '));
+let notaC = parseFloat(prompt('Qual a sua terceira nota? '));
+
+let media = ( (notaA + notaB + notaC) / 3)
+
+if (media <= 49){ console.log('Você foi REPROVADO, sua media foi de ' + media) }
+else if(media <= 69){ console.log('Você esta de RECUPERAÇÂO, sua media foi de ' + media) }
+else { console.log('Você foi APROVADO, sua media foi de ' + media) }
+</script>

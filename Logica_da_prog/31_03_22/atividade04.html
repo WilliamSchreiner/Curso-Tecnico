@@ -1,0 +1,22 @@
+<script> 
+
+//4. Crie um jogo de adivinhação de número e enquanto o usuário não acertar o valor
+// continue pedindo para informar o valor.
+// Se o usuário errar mais de 3 vezes finalize e avise o usuário que ele perdeu.
+
+let segredo = 17;
+let numeroDigitado = 0;
+let erro = 0;
+
+while (segredo!= numeroDigitado || (erro != 3)){ 
+    
+    numeroDigitado = parseInt(prompt('Descubra o valor entre 1 a 20:'))
+    if (erro == 3){
+        alert('Voce perdeu.');
+    }
+    if (segredo == numeroDigitado){ 
+        alert('Voce acertou.')
+    }else{ erro = erro + 1; alert('Voce errou.'); };
+
+}
+</script>

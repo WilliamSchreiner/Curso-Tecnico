@@ -1,0 +1,79 @@
+body h2, p, button, input{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+body {
+    margin:0;
+    background-color: black;
+}
+body h2, p {
+    height: 10px;
+}
+
+/* elementos */
+#input-number{
+    height: 25px;
+    width: 200px;
+    margin-top: 0px
+}
+#div-elementos {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#botoes-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.botoes  button{
+    flex:auto;
+    margin-right: 0px;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 35px;
+    width: 150px;
+    height: 35px;
+    
+}
+.aumentar{
+    background-color: rgba(255, 0, 0, 0.568);
+    box-shadow: 2px 2px red;
+}
+.diminuir{
+    background-color: rgba(5, 9, 255, 0.568);
+    box-shadow: 2px 2px rgb(0, 4, 255);
+}
+.reiniciar{
+    background-color: rgba(238, 255, 0, 0.568);
+    box-shadow: 2px 2px rgb(255, 238, 0);
+}
+.aumentar:hover{
+    background-color: rgb(255, 0, 0);
+    box-shadow: 1px 1px red;
+    
+}
+.diminuir:hover{
+    background-color: rgb(25, 0, 255);
+    box-shadow: 1px 1px rgb(0, 4, 255);
+}
+.reiniciar:hover{
+    background-color: rgb(255, 251, 0);
+    box-shadow: 1px 1px rgb(255, 238, 0);
+}
+
+#div-resultado{
+    height: 25px;
+    background-color: #FFF;
+    width: 200px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+}
+h2, p {color:#FFF}

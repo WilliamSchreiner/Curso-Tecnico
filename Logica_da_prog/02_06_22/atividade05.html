@@ -1,0 +1,25 @@
+<meta charset = 'UTF-8'>
+<script>
+//Desenvolva um programa que leia o nome de um funcionário, seu salário, 
+//quantos anos ele trabalha na empresa e mostre seu novo salário, 
+//reajustado de acordo com a tabela a seguir: 
+//a) até 3 anos de empresa aumento de 3%;
+//b) entre 3 à 10 anos de empresa aumento de 12,5%; 
+//c) acima de 10 anos aumento de 20%
+
+let nome = prompt('Qual é o seu nome do funcionario? ');
+let anos = parseFloat(prompt('Quantos anos ele trabalha na empresa? '));
+let salar = parseFloat(prompt('Qual é o salario dele ? '));
+
+function aumento ( ){
+    if(anos < 3){ return 3}
+    else if (anos <= 10){ return 12.5}
+    else{ return 20}
+}
+
+let porc = aumento(anos)
+
+console.log( 'O funcionaio ' + nome + ' tem ' + anos + ' anos em sua empresa.' )
+console.log('Seu novo salario é de ' + (salar + (salar * (porc /100))) + ' reais.' );
+
+</script>

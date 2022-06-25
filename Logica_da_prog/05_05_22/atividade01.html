@@ -1,0 +1,22 @@
+<script> 
+//Joãozinho vai convidar alguns colegas da escola para comer pizza em sua casa. Dona Maria, a
+//mão de Joãozinho precisa saber quanto vai gastar com isto. 
+//Escreva um algoritmo que, dado o
+//número de colegas que vão comer pizza, calcule o total da despesa, sabendo que: 
+//a) cada criança come três pedações de pizza; 
+//b) cada pizza é cortada em dez pedaços; cada pizza custa R$ 21,00
+
+
+// Math.ceil(xx) , arredonda sempre par cima. ex. 7.1 vai para 8
+let criança = parseInt(prompt('Quantas crianças ?'));
+let pedaços = criança * 3;
+
+let pizza = Math.ceil(pedaços/ 10);
+console.log('Voce tera ' + pizza + ' pizzas.')
+let preço = pizza * 21;
+console.log('Voce tera um custo de R$ '+ preço)
+
+
+
+
+</script>

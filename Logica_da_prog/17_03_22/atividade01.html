@@ -1,0 +1,29 @@
+<meta charset = 'UTF-8'>
+
+<script> 
+//1. Crie um programa que recebe três notas de 0..10, 
+//calcule a média e caso seja maior ou igual a 7 diga que você foi aprovado, caso contrário reprovado.
+ //Também informe qual é o seu conceito seguindo as seguintes regras:
+ //0 até 49 conceito D, 50 até 69 conceito C, 70 até 89 conceito B, de 90 até 100 conceito A;
+    let n1 = parseInt(prompt('Digite a nota A:'));
+    let n2 = parseInt(prompt('Digite a nota B:'));
+    let n3 = parseInt(prompt('Digite a nota C:'));
+    
+    let media = (n1 + n2+ n3) / 3;
+    //A - 90 - 100
+    //B - 70 - 89
+    //C - 50 - 69
+    //D - 0 - 49
+    
+    if ( media >= 90){ 
+        console.log( 'A');
+    }
+    if ( media >= 70 && media <= 89){ 
+        console.log('B')
+    }
+    if ( media >= 50 && media <= 69 ){ 
+        console.log('C')
+    }
+    if (media < 50) {console.log('D')}
+    
+</script>

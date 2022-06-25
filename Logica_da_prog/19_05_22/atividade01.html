@@ -1,0 +1,22 @@
+<meta charset = 'UTF-8'>
+<script>
+//Crie um programa que peça 5 valores do usuário e armazene em um vetor.
+// Após calcule a média e encontre o maior valor.
+let valores = []
+let soma = 0;
+let maiorN = 0;
+
+for (i = 0; i <= 4 ;i++){ 
+    let valor = parseInt(prompt('Digite aqui algum valor: '));
+    valores.push(valor);
+    soma = soma + valores[i]; 
+}
+for (iA = 0; iA <= 5; iA++){
+    if ( valores[iA] > maiorN ){(maiorN = valores[iA])}
+}
+
+let media = soma / valores.length;
+
+console.log('Sua media é ' + media + ' e o seu valor maior valor digitado é ' + maiorN)
+
+</script>

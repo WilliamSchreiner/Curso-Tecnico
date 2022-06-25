@@ -1,0 +1,33 @@
+
+<meta charset = 'STF-8'>
+<script> 
+
+//João é um investidor e ele quer um programa para calcular o seu lucro nas suas operações financeiras. 
+//Crie uma variável
+//para o capital inicial investido e o capital final, calcule o lucro ou prejuízo da operação. 
+
+let capitalInicial = 20000;
+let capitalFinal = 2000;
+
+let diferenca = capitalInicial - capitalFinal;
+
+// a diferença porcentual so dara certo se a diferença entre os investimento for positiva;
+// se a diferença porcentual for negativa apenas troque a divisao do codigo 
+//'diferenca / capitalInicial' por 'diferenca / capitalFinal'; 
+
+ if ( diferenca >= 0){
+    if (diferenca == 0){
+    let porcentagemDiferenca = (diferenca/ capitalInicial) * 100
+    console.log('A diferença de valores foi de : ' + diferenca)
+    } else {let porcentagemDiferenca = (diferenca / capitalInicial) * 100;
+    console.log('A diferença de valores foi de : ' + diferenca)
+    console.log('A diferença porcentual do Investimento ao lucro foi de: '+ porcentagemDiferenca + '%')}
+ }
+ else{ 
+    let porcentagemDiferenca = (diferenca / capitalFinal) * 100;
+    console.log('A diferença de valores foi de : ' + diferenca)
+    console.log('A diferença porcentual do Investimento ao lucro foi de: '+ porcentagemDiferenca + '%');
+ }
+
+
+</script>

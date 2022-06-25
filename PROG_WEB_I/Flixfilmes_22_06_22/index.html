@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <form onsubmit= "salvarFilme(event)" id="form">
+    <label class="label">Nome do filme:</label><br/>
+    <input type="text" id="titulo" class="input">
+    <br/>
+    <label class="label">link da imagem:</label><br/>
+    <input type="text" id="link" class="input">
+    <br/>
+    <button type="submit" class="botao">Salvar Filme</button>
+    </form>
+    <br/>
+    <div id="filmes-container">
+        <div id="listadeFilmes"></div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

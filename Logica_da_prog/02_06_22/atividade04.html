@@ -1,0 +1,20 @@
+<meta charset = 'UTF-8'>
+<script>
+//Faça um programa que leia a largura e o comprimento de um terreno retangular, 
+//calculando e mostrando a sua área em m².
+//O programa também deve mostrar a classificação desse terreno, de acordo com: 
+//a) abaixo de 100 m² TERRENO POPULAR; 
+//b) entre 100 m² até 500 m² TERRENO MASTER;
+// c) acima de 500 m² TERRENO VIP.
+
+let lar = parseInt(prompt('Quantos metro de largura tem seu terreno? '))
+let com = parseInt(prompt('Quantos metro de comprimento tem seu terreno? '))
+
+let area = lar * com;
+console.log('Seu terreno tem ' + area + ' m².')
+
+if ( area < 100 ){ console.log('Seu terreno se classifica como TERRENO POPULAR')}
+else if( area <= 500 ){ console.log('Seu terreno se classifica como MASTER')}
+else{ console.log('Seu terreno se classifica como TERRENO VIP')}
+
+</script>

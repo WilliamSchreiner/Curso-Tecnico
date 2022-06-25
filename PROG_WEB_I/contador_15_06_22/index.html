@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <header>
+<title>Contador</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+    </header>
+    <body>
+<div class="box">
+<h2>Contador</h2>
+<p>Valor inicial do contador</p>
+</br>
+
+    <div id="div-elementos">
+    <input type="number" id="input-number" onkeyup="iniciliza()">
+
+<div id="div-resultado"> </div>
+
+        <div id="botoes-container">
+            <div class="botoes">  
+        <button onclick="aumentar()" class="aumentar" >Aumentar</button>
+        <button onclick="resetar()" class="reiniciar" >Reiniciar</button>
+        <button onclick="diminuir()" class="diminuir" >Diminuir</button>
+            </div>
+        </div> 
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+let numero;
+
+function iniciliza() {
+    numero = parseInt(document.querySelector("#input-number").value);
+    document.querySelector("#div-resultado").innerHTML= numero
+}
+
+function aumentar(){
+    numero++;document.querySelector("#div-resultado").innerHTML= numero
+}
+function diminuir(){
+    numero--; document.querySelector("#div-resultado").innerHTML= numero
+}
+function resetar(){ 
+numero = parseInt(document.querySelector("#input-number").value);
+document.querySelector("#div-resultado").innerHTML= numero}
+
+
+</script>
+    </body>
+</html>
+
+

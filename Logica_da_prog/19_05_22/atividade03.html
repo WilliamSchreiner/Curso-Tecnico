@@ -1,0 +1,16 @@
+<script> 
+//Escreva um programa para aprovar ou não o empréstimo bancário para a compra de uma casa.
+//O programa vai perguntar o valor da casa,o salário do comprador e em quantos anos ele vai pagar. 
+//Calcule o valor da prestação mensal, 
+//sabendo que ela não pode exceder 30% do salário ou então o empréstimo será negado.
+
+let valorCasa = parseInt(prompt('Digite aqui o valor da casa: '));
+let salario = parseInt(prompt('Digite aqui o seu salario: '));
+let anos = parseInt(prompt('Digite aqui o tempo me anos,em que voce vai pagar: '));
+
+let min = valorCasa / (anos * 12);
+console.log('minimo das prestações ' + min)
+if ( min <= (salario * 0.30)){
+    console.log('Aprovado, suas prestações mensais sao de ' + (salario * 0.30))
+}else{console.log('Reprovado, suas prestações mensais ' + (salario * 0.30))}
+</script>

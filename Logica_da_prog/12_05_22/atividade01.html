@@ -1,0 +1,26 @@
+<meta charset = 'UTF-8'>
+<script> 
+//Crie um vetor e armazene 5 notas informadas pelo usuário, 
+//após calcule a média e exiba o resultado da média.
+
+let notas = [];
+
+for(per = 0; per <= 4; per++){
+    let nota = parseInt(prompt('Qual a sua nota? '))
+    notas.push(nota)
+}
+
+let soma = 0
+for(i = 0; i < notas.length; i++){
+   
+    soma = soma + notas[i]
+}
+ console.log('Sua notas são ' + notas)
+console.log('Sua media é ' + (soma / notas.length));
+
+
+</script>
+
+
+
+

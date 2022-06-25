@@ -1,0 +1,56 @@
+<script> 
+//5. Calcule o salário liquido levando em conta o INSS e o IR. 
+//Primeiramente calcula e desconta o INSS e após calcula o IR.
+
+// oBs: primeiro subitrai o INSS, com o restante do do valor calculese o IF
+// reduzi a pacela a deduzir do valor do IF.
+//TABELA INSS
+//SALÁRIO DE CONTRIBUIÇÃO	   ALÍQUOTA (%)	 PARCELA A  DEDUZIR (R$)
+// Até R$ 1.212	                 7,50%	             0,00
+//R$ 1.212,01 até R$ 2.427,35	 9,00%	             18,18
+//R$ 2.427,36 até R$ 3.641,03	 12,00%	             91,01
+//R$ 3.641,04 até R$ 7.087,22	 14,00%	             163,00
+
+//TABELA IR
+//Base de cálculo	             Alíquota	   Parcela a deduzir
+//Até R$1.903,98	              Isento	        Isento
+//De R$1.903,99 até R$2.826,65	  7,5%	           R$ 142,80
+//De R$2.826,66 até R$3.751,05    15%	           R$ 354,80
+//De R$3.751,06 até R$4.664,68	  22,5%	           R$ 636,13
+//Acima de R$4.664,68             27,5%	           R$ 869,36
+
+//objetos.
+//let r = ir(...);
+//r.aliquota
+//return {aliquota: 2, deducao: 2}
+
+let salario = parseFloat(prompt('Digite seu valor aqui: '))
+
+function inss (valor){ 
+if (valor <= 1212){return {aliq: 7.5, dedu: 0}}
+else if(valor <= 2427.35){return {aliq: 9, dedu: 18.18}}
+else if(valor <= 3641.03){return {aliq: 12, dedu: 91.01}}
+else if(valor <= 7.087,22){return {aliq: 14, dedu: 163}}
+else {return {aliq: 14, dedu: 163}}
+} 
+
+function ir (valor){
+if (valor <= 1903.98){return {aliq: 0, dedu: 0}}
+else if(valor <= 2826.65){return {aliq: 7.5, dedu: 142.80}}
+else if(valor <= 3751.05){return {aliq: 15, dedu: 354.80}}
+else if(valor <= 4664.68){return {aliq: 22.5, dedu: 636.13}}
+else {return {aliq: 27.5, dedu: 869.36}}
+}
+
+let inssN = inss (salario);
+let irN = ir (salario);
+
+console.log('Seu valor apresenta porcentagem de desconto no INSS de: ' + inssN.aliq + '% e IR de: ' + irN.aliq + '%.');
+console.log('Seu valor detem uma deduçao no inss de: R$ ' + inssN.dedu + ' e IR de: R$ ' + irN.dedu + '.');
+
+let salarioLiquido = salario - ( (salario * (inssN.aliq / 100)) - inssN.dedu);
+console.log('Seu salario depois do desconto do inss fica igual a: R$ ' + salarioLiquido);
+
+salarioLiquido = salarioLiquido - ( (salarioLiquido * (irN.aliq / 100)) - irN.dedu);
+console.log('Seu salario depois do desconto do IR fica igual a: R$ ' + salarioLiquido);
+</script>

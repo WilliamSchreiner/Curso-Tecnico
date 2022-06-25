@@ -1,0 +1,18 @@
+<script> 
+// Dado o vetor a = [2,4,3,8,9,10,11,15] e b = [11,15,20,30,40, 2] 
+// utilizando for para percorrer os vetores,
+// crie um vetor c com os elementos em comum.
+
+let vetorA = [2, 4, 3, 8, 9, 10, 11, 15];
+let vetorB = [11, 15, 20, 30, 40, 2];
+let vetorC = [];
+
+for (iA = 0; iA < vetorA.length; iA++){
+    
+    for(iB = 0; iB < vetorB.length; iB++){
+        if ( vetorA[iA] == vetorB[iB] ) {vetorC.push(vetorA[iA])}
+}}
+console.log(vetorC)
+
+
+</script>

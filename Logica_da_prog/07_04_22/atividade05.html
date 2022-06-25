@@ -1,0 +1,15 @@
+<meta = charset 'UTF-8'>
+<script> 
+//5.Crie uma função que receba 3 notas como parâmetro, 
+//após calcule a média e retorno o valor e mostre para o usuário.
+
+function calcularMedia(valor1, valor2 , valor3){ 
+    let media = (valor1 + valor2 + valor3) / 3;
+    return media;
+}
+let resp1 = parseInt(prompt('Digite o primeiro valor.'));
+let resp2 = parseInt(prompt('Digite o segundo valor.'))
+let resp3 = parseInt(prompt('Digite o terceiro valor.'))
+
+console.log('A media dos valores '+resp1+' '+resp2+' '+resp3+' é ' + calcularMedia(resp1, resp2, resp3));
+</script>

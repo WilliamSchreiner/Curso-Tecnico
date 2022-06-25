@@ -1,0 +1,88 @@
+<script> 
+//8.Crie um programa que solicite ao usuário um valor investido,
+// a taxa de juros anual e a quantidade de dias com o valor investido, 
+// após calcule com base na tabela regressiva o valor liquido. link para tabela regressiva 
+//https://paranabancoinvestimentos.com.br/blog/entenda-como-funciona-a-tabela-regressiva-da-renda-fixa/  
+
+//Imposto de Renda
+//TEMPO DE INVESTIMENTO	ALÍQUOTA
+//Entre 0 e 180 dias	22,5%
+//Entre 181 e 360 dias	20%
+//Entre 361 e 720 dias	17,5%
+//Acima de 721 dias	15%
+
+//DIAS	ALÍQUOTA DE IOF DIAS	ALÍQUOTA DE IOF
+//1	96%	    16	46%      2	93%	17	43%
+//3	90%  	18	40%      4	86%	19	36%
+//5	83%	    20	33%      6	80%	21	30%
+//7	76%	    22	26%      8	73%	23	23%
+//9	70%     24	20%      10	66%	25	16%
+//11 63%	26	13%      12	60%	27	10%
+//13 56%	28	6%       14	53%	29	3%
+//15 50%	30	0%
+
+let valorInvest = parseInt(prompt('Digite aqui o valor do investimento.'));
+let juros = parseInt(prompt('Digite aqui o juros anuais.'));
+let dias = parseInt(prompt('Digite aqui o tempo em dias, em que o valor passou investido.'));
+
+function calcularIOF(tempo){ 
+    if (tempo <= 10){
+         if(tempo <= 5){
+            if(tempo == 1){return 96 }
+            else if(tempo == 2){return 93 }
+            else if(tempo == 3){return 90}
+            else if(tempo == 4){return 86}
+            else if(tempo == 5){return 83}}
+        else if(tempo >= 6){ 
+            if(tempo == 6){return 80}
+            else if(tempo == 7){return 76}
+            else if(tempo == 8){return 73}
+            else if(tempo == 9){return 70}
+            else if(tempo == 10){return 66}}}
+    else if(tempo <= 20){
+        if(tempo <= 15){
+            if(tempo == 11){return 63}
+            else if(tempo == 12){return 60}
+            else if(tempo == 13){return 56}
+            else if(tempo == 14){return 53}
+            else if(tempo == 15){return 50}}
+        else if(tempo >= 16){ 
+            if(tempo == 16){return 46}
+            else if(tempo == 17){return 43}
+            else if(tempo == 18){return 40}
+            else if(tempo == 19){return 36}
+            else if(tempo == 20){return 33}}}
+    else if(tempo <= 29){ 
+        if(tempo <= 25){
+            if(tempo = 21){return 30}
+            else if(tempo == 22){return 26}
+            else if(tempo == 23){return 23}
+            else if(tempo == 24){return 20}
+            else if(tempo == 25){return 16}}
+        else if(tempo >= 26){ 
+            if(tempo == 26){return 13}
+            else if(tempo == 27){return 10}
+            else if(tempo == 28){return 6}
+            else if(tempo == 29){return 3}}
+    }
+    else if (tempo >= 30){return 0}
+}
+console.log('Desconto do IOF = ' + calcularIOF(dias)+'%')
+function Imposto(tempo){ 
+    if (tempo <= 180){return 22.5}
+    else if (tempo <= 360){return 20}
+    else if (tempo <= 720){return 17.5}
+    else if (tempo >= 721){return 15}
+
+};
+console.log('Desconto do Imposto de Renda = ' + Imposto(dias) +' %.')
+
+let valorDoJuros = (valorInvest * ((juros / 365) / 100)) * dias;
+console.log('Valor ganho de lucro liquido = ' + valorDoJuros + ' reais.');
+
+let valorSemINSS = valorDoJuros - (valorDoJuros * (calcularIOF(dias) / 100)) 
+console.log('Com o desconto do INSS, voce ficou com = ' + valorSemINSS + ' reias.')
+
+let valorFinal = valorSemINSS - (valorDoJuros * (Imposto(dias) / 100)) ;
+console.log('Com o desconto do IR, voce ficou com = ' + valorFinal + ' reias.')
+</script>

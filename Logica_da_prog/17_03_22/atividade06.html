@@ -1,0 +1,44 @@
+
+
+<meta charset = 'UTF-8'>
+<script> 
+//6. A empresa SuperTech está com dificuldades para calcular o valor líquido que o colaborador 
+    //irá receber.Crie um sistema para calcular o salário líquido, considere que: 
+        //a) salários de R$ 1.500,00 até R$ 2.000,00 terão 10% de desconto em impostos; 
+        //b) salários R$ 2.000 até R$ 2.500,00 terão 15% de desconto em impostos, 
+        //c) salários acima de R$ 2.500,00 terão 18% de impostos.
+
+let descA = 10 / 100;
+let descB = 15 / 100;
+let descC = 18 / 100;
+let salarioAtual = parseInt(prompt('Digite seu salario aqui:'));
+
+if (salarioAtual < 1500){ 
+    console.log('Seu salario atual é: ' + salarioAtual);
+  console.log('Desconto em imposto é: 0%');
+  console.log('Você deve pagar: ' + salarioAtual);
+}
+else if (salarioAtual >= 1500 && salarioAtual < 2000){ 
+  let salarioPorc = salarioAtual * descA;
+  let imposto = salarioAtual - salarioPorc;
+  console.log('Seu salario atual é: ' + salarioAtual);
+  console.log('Desconto em imposto é: 10%');
+  console.log('Você deve pagar: ' + imposto);
+}
+else if(salarioAtual >= 2000 && salarioAtual < 2500){ 
+  let salarioPorc = salarioAtual * descB;
+  let imposto = salarioAtual - salarioPorc;
+  console.log('Seu salario atual é: ' + salarioAtual);
+  console.log('Desconto em imposto é: 15%');
+  console.log('Você deve pagar: ' + imposto);
+}
+  else if(salarioAtual >= 2500){ 
+  let salarioPorc = salarioAtual * descC;
+  let imposto = salarioAtual - salarioPorc;
+  console.log('Seu salario atual é: ' + salarioAtual);
+  console.log('Desconto em imposto é: 18%');
+  console.log('Você deve pagar: ' + imposto);
+};
+
+
+</script>

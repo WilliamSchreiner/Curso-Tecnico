@@ -1,0 +1,52 @@
+body {
+    margin:0;
+    background-color: rgba(78, 78, 243, 0.466);
+}
+#form {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+.botao{
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.input{
+    margin-top: 0;
+}
+.label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+#filmes-container{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(65, 65, 245);
+    height: 200px;
+}
+.container-item{
+    
+    flex: auto;
+    border-left:  1px solid rgb(14, 3, 119);
+    border-right: 1px solid rgb(14, 3, 119);
+    border-top:  1px solid rgb(14, 3, 119);
+    border-bottom:  1px solid rgb(14, 3, 119);
+    max-height: 200px;
+    max-width: 150px;
+}
+#listadeFilmes {
+    flex: auto;
+    
+}
+.img-item{
+    max-height: 150px;
+    width: 100px;background-color: blueviolet;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 15px;
+}
+.p-item{
+    margin-right: 0px;
+    margin-left: 50px;
+    margin-top: 10px;
+}

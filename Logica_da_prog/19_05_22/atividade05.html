@@ -1,0 +1,14 @@
+<script>
+//Faça um programa que leia 7 nomes de pessoas e guarde-os em um vetor. No final,
+// mostre uma listagem com todos os nomes informados,
+// na ordem inversa daquela em que eles foram informados.
+let nomes = [];
+let nomesIn = [];
+for(i = 0; i <= 6; i++){
+    let nome = prompt('Digite aqui algum nome: '); nomes.push(nome);
+}
+for(i = 6; i >= 0; i = i-1){
+    nomesIn.push(nomes[i]);
+}
+console.log(nomesIn)
+</script>
