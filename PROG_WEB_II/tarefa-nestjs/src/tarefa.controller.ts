@@ -13,10 +13,11 @@ export class tarefaController {
     @Put("/tarefa")
     salvarTarefa(@Body() tarefa){
         // @Body é a requisiçao de algum dados inserido dentro do site
-        let index = this.tarefaLista.findIndex(t => t.codigo == tarefa.codigo);
+        let index = this.tarefaLista.findIndex(t => t.id == tarefa.id);
         if(index >= 0) {
             this.tarefaLista[index].descricao = tarefa.descricao;
         } else {
+            tarefa.id = Math.random().toString(36);
             this.tarefaLista.push(tarefa);
             return "ok";
         }        
