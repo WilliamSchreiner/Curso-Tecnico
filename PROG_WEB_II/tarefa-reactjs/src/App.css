@@ -4,7 +4,7 @@ body {
 
 .container{
   background: #f1f1f1;
-  height: 300px;
+  height: 500px;
   margin-top: 120px;
   box-shadow: 2px 2px 4px #838282;
 }
@@ -12,7 +12,11 @@ body {
 h3 {
   margin-top: 15px
 }
+#form{
+  text-align: center;
+}
 
+/*salvar botao*/
 #botaoSalvar{
   margin-top: 15px;
   padding-top: 5px;
@@ -24,8 +28,36 @@ h3 {
   border-right: solid 1px rgb(0, 255, 21);
   border-radius: 10px;
   background-color: rgb(219, 219, 219);
+  
 }
 #botaoSalvar:hover{
   background-color: rgba(109, 247, 116, 0.568);
   box-shadow: 2px 2px 4px rgb(10, 173, 4);
 }
+
+/* deletar botao*/
+.botaoExcluir{
+  border-bottom: solid 1px rgb(225, 0, 0);
+  border-top: solid 1px rgb(225, 0, 0);
+  border-left: solid 1px rgb(225, 0, 0);
+  border-right: solid 1px rgb(225, 0, 0);
+  background-color: #FFF;
+  border-radius: 5px;
+}
+.botaoExcluir:hover{
+  background-color: #ff9191;
+  box-shadow: 1px 1px 1.5px rgb(225, 0, 0);
+}
+
+/* botoes de editar */
+.botaoEditar{
+  border-bottom: solid 1px rgb(0, 204, 255);
+  border-top: solid 1px rgb(0, 204, 255);
+  border-left: solid 1px rgb(0, 204, 255);
+  border-right: solid 1px rgb(0, 204, 255);
+  background-color: #FFF;
+  border-radius: 5px;
+}
+.botaoEditar:hover{
+  background-color: rgba(114, 221, 247, 0.623);
+  box-shadow: 1px 1px 1.5px rgb(0, 144, 180);}

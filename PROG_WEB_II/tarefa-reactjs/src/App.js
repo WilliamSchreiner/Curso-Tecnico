@@ -51,7 +51,7 @@ function App() {
     <div className="container">
       <h3> Formulario </h3>
 
-      <form onSubmit={(event) => salvar(event)}>
+      <form id="form" onSubmit={(event) => salvar(event)}>
         <div className="mb-3">
           <label for="form-label" className="form-label">Descrição</label>
           <input type="text" className="form-control" value={descricao} onChange={(event) => setDescricao(event.target.value)} />
