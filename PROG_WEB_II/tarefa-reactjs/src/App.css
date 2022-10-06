@@ -1,38 +1,31 @@
-.App {
-  text-align: center;
+body {
+  background: #FFF;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+  background: #f1f1f1;
+  height: 300px;
+  margin-top: 120px;
+  box-shadow: 2px 2px 4px #838282;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h3 {
+  margin-top: 15px
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#botaoSalvar{
+  margin-top: 15px;
+  padding-top: 5px;
+  height: 45px;
+  width: 90px;
+  border-bottom: solid 1px rgb(0, 255, 21);
+  border-top: solid 1px rgb(0, 255, 21);
+  border-left: solid 1px rgb(0, 255, 21);
+  border-right: solid 1px rgb(0, 255, 21);
+  border-radius: 10px;
+  background-color: rgb(219, 219, 219);
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#botaoSalvar:hover{
+  background-color: rgba(109, 247, 116, 0.568);
+  box-shadow: 2px 2px 4px rgb(10, 173, 4);
 }

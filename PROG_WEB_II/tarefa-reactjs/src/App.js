@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  const [id, setId] = useState();
+  const [codigo, setCodigo] = useState();
   const [descricao, setDescricao] = useState();
   const [listaTarefa, setListaTarefa] = useState([]);
 
@@ -23,7 +23,7 @@ function App() {
     event.preventDefault();
 
     let tarefa = {
-      id: id,
+      codigo: codigo,
       descricao: descricao
     };
 
@@ -32,17 +32,18 @@ function App() {
     });
   }
 
-  function editar(id) {
-    axios.get("http://localhost:3100/tarefa/" + id).then((resultado) => {
-      setId(resultado.data.id);
-      setDescricao(resultado.data.descricao)
-
+  function editar(codigo) {
+    axios.get("http://localhost:3100/tarefa/" + codigo).then((resultado) => {
+      setCodigo(resultado.data.codigo);
+      setDescricao(resultado.data.descricao);
+      buscar();
     });
   }
 
-  function excluir(id) {
-    axios.delete("http://localhost:3100/tarefa/" + id).then(() => {
-      buscar()
+  function excluir(codigo) {
+    axios.delete("http://localhost:3100/tarefa/" + codigo).then((resultado) => {
+      console.log(codigo);
+    buscar()
     })
   }
 
@@ -56,7 +57,7 @@ function App() {
           <input type="text" className="form-control" value={descricao} onChange={(event) => setDescricao(event.target.value)} />
         </div>
 
-        <button type="submit" className="btn btn-primary" >Salvar</button>
+        <button type="submit" id="botaoSalvar" className="btn btn-primary" >Salvar</button>
       </form>
 
       <h3> Tarefas </h3>
@@ -66,8 +67,6 @@ function App() {
           <thead>
             <tr>
               <td> tarefa </td>
-              <td>
-              </td>
             </tr>
           </thead>
           <tbody>
@@ -76,10 +75,10 @@ function App() {
                 <tr key={index}>
                   <td>{tarefa.descricao}</td>
                   <td>
-                    <button className="botaoEditar" onClick={() => editar(tarefa.id)}>Editar</button>
+                    <button className="botaoEditar" onClick={() => editar(tarefa.codigo)}>Editar</button>
                   </td>
                   <td>
-                    <button className="botaoExcluir" onClick={() => excluir(tarefa.id)}>Excluir</button>
+                    <button className="botaoExcluir" onClick={() => excluir(tarefa.codigo)}>Excluir</button>
                   </td>
                 </tr>
               ))
