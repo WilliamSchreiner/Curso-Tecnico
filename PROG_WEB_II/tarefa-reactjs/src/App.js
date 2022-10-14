@@ -42,7 +42,6 @@ function App() {
 
   function excluir(codigo) {
     axios.delete("http://localhost:3100/tarefa/" + codigo).then((resultado) => {
-      console.log(codigo);
     buscar()
     })
   }
