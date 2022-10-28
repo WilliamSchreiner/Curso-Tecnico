@@ -1,41 +1,39 @@
 import { Body, Controller, Delete, Get, Param, Put } from "@nestjs/common";
+import { TarefaService } from "./tarefa.service";
+import { Tarefa } from "./tarefa.entity";
 
 @Controller()
 export class tarefaController {
 
-    tarefaLista = [];
+    constructor(
+        private tarefaService: TarefaService
+    ) {}
 
     @Get("/tarefa")
-        listaTarefa(){
-            return this.tarefaLista;
+       async listaTarefa(): Promise<Tarefa[]> {
+            return await this.tarefaService.findAll();
         }
     
     @Put("/tarefa")
-    salvarTarefa(@Body() tarefa){
-        // @Body é a requisiçao de algum dados inserido dentro do site
-        let index = this.tarefaLista.findIndex(t => t.codigo == tarefa.codigo);
-        if(index >= 0) {
-            this.tarefaLista[index].descricao = tarefa.descricao;
-        } else {
-            tarefa.codigo = Math.random().toString(36);
-            this.tarefaLista.push(tarefa);
+    async salvarTarefa(@Body() tarefa) {
+//@Body é relacionado ao escorpo do site.
+        await this.tarefaService.salvar(tarefa);
             return "ok";
-        }        
+               
     }
 
     @Get("/tarefa/:codigo")
-    buscarPorCod(@Param() parametro){
+    async buscarPorCodigo(@Param() parametro): Promise<Tarefa> {
         // @param é o objeto como algum parametro, por meio disso pode requisitar informaçoes no final da URL.  Ex: localhost:3100/tarefa/12  12=codigo
-        console.log(parametro)
-        let tarefa = this.tarefaLista.find(tarefa => tarefa.codigo == parametro.codigo);
-        return tarefa;
+        console.log(parametro.codigo); //pega o :codigo da url
+        return await this.tarefaService.findById(parametro.codigo);
     }
 
     @Delete("/tarefa/:codigo")
-    excluirTarefa(@Param() parametro){
-        let index = this.tarefaLista.findIndex(tarefa => tarefa.codigo == parametro.codigo);
-        console.log(index);
-        this.tarefaLista.splice(index, 1)
+    async excluirTarefa(@Param() parametro){
+
+        await this.tarefaService.excluir(parametro.codigo);
+
         return "excluido"
     }
 }
