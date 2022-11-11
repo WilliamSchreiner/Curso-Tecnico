@@ -12,7 +12,7 @@ export class AvatarService {
     static salvar(avatar: Avatar) {
         if(avatar.id) {
 
-            let  index = AvatarService.list.findIndex(a => a.id == avatar.id); // Retornara o vetor do Avatar da lista se ele existir
+            let  index = AvatarService.list.findIndex(a => a.id === avatar.id); // Retornara o vetor do Avatar da lista se ele existir
             AvatarService.list[index].nome = avatar.nome;
             AvatarService.list[index].imagem = avatar.imagem;
         }else{

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Home } from './components/home/Home' // import para Home
 import { AvatarLista } from './components/avatar/AvatarLista' // import para Home
@@ -10,7 +9,7 @@ import { Link, Route, Routes } from 'react-router-dom'; // import para index das
 function App() {
   return (
     <>
-    <h1>ola avatar</h1>
+    <h1> Olá avatar </h1>
 
     <ul>
       <li> <Link to={'/'}>Home</Link></li>

@@ -8,7 +8,7 @@ export function AvatarCadastro() {
     const [nome, setNome] = useState('');
     const [imagem, setImagem] = useState('');
 
-    function salvar(event: any) {
+        function salvar(event: any) {
         event.preventDefault(); // nesta condiçoes perderemos os dados se nao quardarmos ela em algum local, 
         //neste projeto foi no AvatarService mas podemos fazer de forma direta no NestJS;
 
@@ -24,22 +24,22 @@ export function AvatarCadastro() {
     return(
         <>
         <Link to={'/avatar'}> Seus avatares </Link>
+        <Link to={'/'}> Home </Link>
         
         <h1>Pagina Avatar Cadastro</h1>
 
-        <div>
-            <form>
+    <div>
+            <form onSubmit={salvar}>
 
-                <label>Nome</label>
-            <input type='text' onChange={(event) => setNome(event.target.value)}> </input>
+            <label> Nome </label>
+            <input type='text' onChange={(event) => setNome(event.target.value)} />
 
-            <label>Avatar (imagem)</label>
-            <input type='text' onChange={(event) => setImagem(event.target.value)}> </input>
+            <label> Avatar (imagem) </label>
+            <input type='text' onChange={(event) => setImagem(event.target.value)}/>
 
             </form>
-        </div>
+        </div> 
 
-        
         </>
     )
 }
