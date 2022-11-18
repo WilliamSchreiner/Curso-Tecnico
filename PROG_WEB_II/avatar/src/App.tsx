@@ -20,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/avatar" element={< AvatarLista />} />
         <Route path="/avatar/cadastro" element={< AvatarCadastro />} />
+        <Route path="/avatar/cadastro/:id" element={< AvatarCadastro />} />
     </Routes>
 
     </>

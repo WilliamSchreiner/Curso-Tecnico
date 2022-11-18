@@ -20,4 +20,9 @@ export class AvatarService {
             AvatarService.list.push(avatar);
         }
     }
+
+    static buscarPorId(id: string): Avatar | undefined{
+        return this.list.find(avatar => avatar.id === id)
+    }
+        
 }
