@@ -19,7 +19,7 @@ import { Tarefa } from './tarefa.entity';
       entities: [
         Tarefa // entidades/classes
       ],
-      synchronize: false
+      synchronize: true
     }),
     TypeOrmModule.forFeature([Tarefa])
   ],
