@@ -1,0 +1,13 @@
+### Test Conexão
+GET http://localhost:3333
+
+### Test Post
+POST http://localhost:3333
+content-type: application/json
+
+{
+    "name": "FEMA",
+    "curso": "Tecnico em Informatica",
+    "email":"fema@fema.com",
+    "uc":"Programação WEB 3"
+}
