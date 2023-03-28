@@ -1,66 +1,82 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native';
-import { useState, useEffect } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, Botao } from 'react-native';
+import React, { useState, useEffect } from 'react';
 
 export default function App() {
+
+  const[firstNumber, setFirstNumber] = useState(0);
+  const[secondNumber, setSecondNumber] = useState(0);
+  const[sinal, setSinal] = useState("");
+  const[stringCalculo, setStringCalculo] = useState("");
+
+  function logicaCalculadora(n){
+    if (sinal == ''){
+        setFirstNumber(parsetInt(firstNumber.toString() + n.toString()));
+        setStringCalculo(parsetInt(firstNumber.toString() + n.toString()));
+    }
+    if ((n =="/" || n == "*"|| n == "-"|| n == "+") && secondNumber ==0){
+        setStringCalculo(firstNumber.toString() + n.toString());
+        setSinal(n)
+    }
+    if (sinal !== ''){
+        setSecondNumber(parsetInt(secondNumber.toString() + n.toString()));
+        setStringCalculo(firstNumber+sinal+parsetInt(secondNumber.toString() + n.toString()));
+    }
+    if (n == "="){
+        let resultado = 0;
+
+        if (sinal == '+'){
+            resultado= firstNumber+secondNumber
+        }else if (sinal == '-'){
+            resultado= firstNumber-secondNumber
+        }else if (sinal == '*'){
+            resultado= firstNumber*secondNumber
+        }else if (sinal == '/'){
+            resultado= firstNumber/secondNumber
+        }
+        setStringCalculo(resultado);
+        setSinal(''),
+        setFirstNumber(resultado),
+        setSecondNumber(0)
+    }
+    
+}
+
+
+
+  var numeros = [];
+
+  for(var i=0; i<=9; i++){
+    numeros.push(i)
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <View style={styles.flex}>
-<TouchableOpacity style={styles.BoxOperanc}> + </TouchableOpacity>
-      <TouchableOpacity style={styles.BoxOperanc}> - </TouchableOpacity>
-      <TouchableOpacity style={styles.BoxOperanc}> / </TouchableOpacity>
-      <TouchableOpacity style={styles.BoxOperanc}> x </TouchableOpacity>
+      <View><Text>{stringCalculo}</Text></View>
+      
+      <TouchableOpacity style={{width: "25%",backGroundColor:'black',justifyContent: 'center', alignItems: 'center', height:'100%'}}> <Text style={{fontSize: 24, textAlign: 'center', color:'#fff'}}>+</Text></TouchableOpacity>
+      <TouchableOpacity style={{width: "25%",backGroundColor:'black',justifyContent: 'center', alignItems: 'center', height:'100%'}}> <Text style={{fontSize: 24, textAlign: 'center', color:'#fff'}}>-</Text></TouchableOpacity>
+      <TouchableOpacity style={{width: "25%",backGroundColor:'black',justifyContent: 'center', alignItems: 'center', height:'100%'}}> <Text style={{fontSize: 24, textAlign: 'center', color:'#fff'}}>*</Text></TouchableOpacity>
+      <TouchableOpacity style={{width: "25%",backGroundColor:'black',justifyContent: 'center', alignItems: 'center', height:'100%'}}> <Text style={{fontSize: 24, textAlign: 'center', color:'#fff'}}>/</Text></TouchableOpacity>
+       
 
-      <TouchableOpacity style={styles.Box}> 0 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> 1 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> 2 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> 3 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> 4 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> 5 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> 6 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> 7 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> 8 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> 9 </TouchableOpacity>
-      <TouchableOpacity style={styles.Box}> = </TouchableOpacity>
-      </View>
+<View style={{flexDirection: 'row', flexWrap: 'wrap', borderTopColor:'black', borderTopWidth:2, height:'66,8%'}}>
+  {
+    numeros.map(function(e){
+      return (<Botao numero={e}></Botao>)
+    })
+  }
+</View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
+    flex: 1,
     backgroundColor: 'black',
     alignItems: 'center',
   },
-  flex: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    height: '100%'
-  },
-  Box: {
-    width: 50,
-    height: 50,
-    border: 'solid',
-    borderColor: '#fff',
-    borderBottomWidth: 1,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderTopWidth: 1,
-    backgroundColor: 'black',
-    color: '#fff',
-    fontSize: 28,
-    paddingLeft: 16,
-    paddingTop: 8,
-    
-  },
-  BoxOperanc: {
-    width: 50,
-    height: 50,
-    color: '#fff',
-    fontSize: 24,
-    marginRight: 8,
-    marginBottom: 15
-  }
+ 
 });
