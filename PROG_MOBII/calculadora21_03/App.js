@@ -3,71 +3,61 @@ import { StyleSheet, Text, TouchableOpacity, View, Botao } from 'react-native';
 import React, { useState, useEffect } from 'react';
 
 export default function App() {
+  const [expression, setExpression] = useState('');
+  const [result, setResult] = useState('');
 
-  const[firstNumber, setFirstNumber] = useState(0);
-  const[secondNumber, setSecondNumber] = useState(0);
-  const[sinal, setSinal] = useState("");
-  const[stringCalculo, setStringCalculo] = useState("");
-
-  function logicaCalculadora(n){
-    if (sinal == ''){
-        setFirstNumber(parsetInt(firstNumber.toString() + n.toString()));
-        setStringCalculo(parsetInt(firstNumber.toString() + n.toString()));
+  const logicaCalculadora = (value) => {
+    if (value === '=') {
+      try {
+        const evalResult = eval(expression);
+        setResult(evalResult.toString());
+      } catch (error) {
+        setResult('Invalid Expression');
+      }
+    } else if (value === 'C') {
+      setExpression('');
+      setResult('');
+    } else {
+      setExpression(expression + value);
     }
-    if ((n =="/" || n == "*"|| n == "-"|| n == "+") && secondNumber ==0){
-        setStringCalculo(firstNumber.toString() + n.toString());
-        setSinal(n)
-    }
-    if (sinal !== ''){
-        setSecondNumber(parsetInt(secondNumber.toString() + n.toString()));
-        setStringCalculo(firstNumber+sinal+parsetInt(secondNumber.toString() + n.toString()));
-    }
-    if (n == "="){
-        let resultado = 0;
-
-        if (sinal == '+'){
-            resultado= firstNumber+secondNumber
-        }else if (sinal == '-'){
-            resultado= firstNumber-secondNumber
-        }else if (sinal == '*'){
-            resultado= firstNumber*secondNumber
-        }else if (sinal == '/'){
-            resultado= firstNumber/secondNumber
-        }
-        setStringCalculo(resultado);
-        setSinal(''),
-        setFirstNumber(resultado),
-        setSecondNumber(0)
-    }
-    
-}
+  };
 
 
+const buttons = [
+  ['*','-','+', '/'],
+  ['7', '8', '9', ],
+  ['4', '5', '6', ],
+  ['1', '2', '3', ],
+  ['.', '0', 'C', '='],
+];
 
-  var numeros = [];
-
-  for(var i=0; i<=9; i++){
-    numeros.push(i)
-  }
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-      <View><Text>{stringCalculo}</Text></View>
-      
-      <TouchableOpacity style={{width: "25%",backGroundColor:'black',justifyContent: 'center', alignItems: 'center', height:'100%'}}> <Text style={{fontSize: 24, textAlign: 'center', color:'#fff'}}>+</Text></TouchableOpacity>
-      <TouchableOpacity style={{width: "25%",backGroundColor:'black',justifyContent: 'center', alignItems: 'center', height:'100%'}}> <Text style={{fontSize: 24, textAlign: 'center', color:'#fff'}}>-</Text></TouchableOpacity>
-      <TouchableOpacity style={{width: "25%",backGroundColor:'black',justifyContent: 'center', alignItems: 'center', height:'100%'}}> <Text style={{fontSize: 24, textAlign: 'center', color:'#fff'}}>*</Text></TouchableOpacity>
-      <TouchableOpacity style={{width: "25%",backGroundColor:'black',justifyContent: 'center', alignItems: 'center', height:'100%'}}> <Text style={{fontSize: 24, textAlign: 'center', color:'#fff'}}>/</Text></TouchableOpacity>
-       
-
-<View style={{flexDirection: 'row', flexWrap: 'wrap', borderTopColor:'black', borderTopWidth:2, height:'66,8%'}}>
-  {
-    numeros.map(function(e){
-      return (<Botao numero={e}></Botao>)
-    })
-  }
-</View>
+      <View style={{flex: 2, backgroundColor: 'gray', justifyContent: 'center', alignItems: 'flex-end', padding: 10, height: 100}}>
+        <Text style={{ fontSize: 50, color: '#fff',}}>{expression}</Text>
+      </View>
+      <View style={{flex: 1, backgroundColor: 'black', justifyContent: 'center', alignItems: 'flex-end', padding: 10,}}>
+        <Text style={{fontSize: 36, fontWeight: 'bold', color: '#fff',}}>{result}</Text>
+      </View>
+      <View style={{flex: 7, backgroundColor: 'black'}}>
+        {buttons.map((row, index) => {
+          return (
+            <View key={index} style={styles.row}>
+              {row.map((buttonValue) => {
+                return (
+                  <TouchableOpacity
+                    key={buttonValue}
+                    style={{flex: 1, justifyContent: 'center', alignItems: 'center', borderWidth: 0.5, borderColor: '#fff', color: '#fff'}}
+                    onPress={() => logicaCalculadora(buttonValue)}>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#fff',}}>{buttonValue}</Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+          );
+        })}
+      </View>
     </View>
   );
 }
@@ -76,7 +66,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'black',
-    alignItems: 'center',
   },
- 
+  row: {
+    flexDirection: 'row',
+    flex: 1,
+  },
 });
