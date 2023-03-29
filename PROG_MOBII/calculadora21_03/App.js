@@ -17,6 +17,8 @@ export default function App() {
     } else if (value === 'C') {
       setExpression('');
       setResult('');
+    } else if (value === 'DEL') {
+        setExpression('');
     } else {
       setExpression(expression + value);
     }
@@ -25,9 +27,9 @@ export default function App() {
 
 const buttons = [
   ['*','-','+', '/'],
-  ['7', '8', '9', ],
-  ['4', '5', '6', ],
-  ['1', '2', '3', ],
+  ['7', '8', '9'],
+  ['4', '5', '6'],
+  ['1', '2', '3'],
   ['.', '0', 'C', '='],
 ];
 
@@ -35,7 +37,7 @@ const buttons = [
   return (
     <View style={styles.container}>
       <View style={{flex: 2, backgroundColor: 'gray', justifyContent: 'center', alignItems: 'flex-end', padding: 10, height: 100}}>
-        <Text style={{ fontSize: 50, color: '#fff',}}>{expression}</Text>
+        <Text style={{ fontSize: 48, color: '#fff',}}>{expression}</Text>
       </View>
       <View style={{flex: 1, backgroundColor: 'black', justifyContent: 'center', alignItems: 'flex-end', padding: 10,}}>
         <Text style={{fontSize: 36, fontWeight: 'bold', color: '#fff',}}>{result}</Text>
