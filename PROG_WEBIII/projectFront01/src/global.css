@@ -1,0 +1,30 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osk-font-smoothing: grayscale
+
+}
+
+:root {
+    --green:#00b37e;
+    --gray-light:#e1e1e6;
+    --gray-dark:#8d8d99;
+    --color-bg-dark:#202024;
+    --color-line:#323238;
+
+    font-size: 62.5%;
+}
+
+body{
+    background-color: var(--color-bg-dark);
+    color: var(--gray-light);
+
+}
+
+body, input, textarea, button {
+    font-family: 'Titillium Web', sans-serif;
+ font-size: 1rem;
+ font-weight: 400;
+}
