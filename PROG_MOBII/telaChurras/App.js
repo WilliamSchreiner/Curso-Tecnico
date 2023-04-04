@@ -87,11 +87,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    
   },
   topo: {
     backgroundColor: '#34a69c',
-    borderBottomEndRadius: 15
+    borderBottomLeftRadius: 28,
+    borderBottomRightRadius: 28,
+    width: 320,
+    height: 90,
+    flexDirection: 'row',
   },
   logo: {
     height: 50,
@@ -99,20 +103,68 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     border: 'solid',
     borderColor: "#fff",
-    borderWidth:1
+    borderWidth:1,
+    marginTop:20,
+    marginLeft: 40,
+    marginRight: 8
   },
-  containerTopo: {},
-  title: {},
-  subTitle:{},
-  pergunta: {},
-  textCentral: {},
-  containerBoxes: {},
+  containerTopo: {
+    width: 200,
+  },
+  title: {
+    marginTop: 25,
+    fontSize: 20,
+    color: '#fff',
+    fontVariant: 'bold'
+  },
+  subTitle:{
+    fontSize: 12,
+    color: '#fff'
+  },
+  pergunta: {
+    width: 280,
+    fontSize: 18,
+    alignSelf: 'center',
+    textAlign: 'center',
+    marginTop: 18
+  },
+  textCentral: {
+    width: 270,
+    fontSize: 12,
+    alignSelf: 'center',
+    textAlign: 'center',
+    marginTop: 10
+  },
+  containerBoxes: {
+    marginTop: 40,
+    marginLeft: 30,
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   Boxes: {
     backgroundColor: '#dff2ed',
-    height: 80, width: 120
+    height: 80,
+    width: 120,
+    marginTop:8,
+    marginLeft: 1,
+    borderRadius: 5,
+    textAlign: 'center'
   },
-  boxIcon: {},
-  boxTitle: {color: '#6cc5bd', },
-  boxText: {color: '#36a89e', },
+  boxIcon: {
+    marginTop: 5,
+    alignSelf: 'center',
+    height: 30,
+    width: 30,
+  },
+  boxTitle: {
+    color: '#6cc5bd',
+    fontSize: 13
+  },
+  boxText: {
+    color: '#36a89e',
+    fontSize: 14
+  },
   
 });
