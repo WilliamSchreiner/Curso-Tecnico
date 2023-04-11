@@ -3,41 +3,47 @@ import { ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-nati
 import { Audio} from 'expo-av';
 import { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
+import Player from './Player'
 
 
 
 export default function App() {
+  const [audioIndex, setarAudioIndex] = useState(0);
 
+  const [playing, setPlaying] = useState(false);
   const [audio, setAudio] = useState(null);
   const [musicas, setMusicas] = useState([
     {
       nome: "Before You Go",
       artista: "Chris Klafford",
       playing: true,
-      file: ''
+      file: require('./Before You Go.mp3')
     },
     {
       nome: "Numb",
       artista: "Linkin Park",
       playing: true,
-      file: ''
+      file: require('./Numb.mp3')
     },
     {
       nome: "Lemon Tree",
       artista: "Post Malone",
       playing: true,
-      file: ''
+      file: require('./Lemon Tree.mp3')
     },
     
   ]);
 
 
-  const chargeMusic = async (id) => {
+  const changeMusic = async (id) => {
     let curFile = null;
     let newMusicas= musicas.filter((val, k) => {
       if(id == k){
       // tocar a musica
         musicas[id].playing = true;
+        curFile = musicas[k].file;
+        setPlaying(true);
+        setarAudioIndex(id);
       }else{
         musicas[id].playing = false;
       } return musicas[k];
@@ -63,6 +69,7 @@ export default function App() {
 
 
   return (
+    <View style={{flex: 1}}>
     <ScrollView style={styles.container}>
       <StatusBar hidden/>
 
@@ -79,7 +86,7 @@ export default function App() {
         if (val.playing){
           return(
             <View style={styles.table}>
-              <TouchableOpacity style={{width: '100%', flexDirection: 'row'}}>
+              <TouchableOpacity  onPress={()=>changeMusic(k)} style={{width: '100%', flexDirection: 'row'}}>
               <Text style={styles.tableTextSelected}> <AntDesign name='play' size={15} color='#fff' />{val.name}</Text>
               <Text style={styles.tableTextSelected}>{val.artista}</Text>
               </TouchableOpacity>
@@ -88,7 +95,7 @@ export default function App() {
         }else{
           return(
             <View style={styles.table}>
-              <TouchableOpacity style={{width: '100%', flexDirection: 'row'}}>
+              <TouchableOpacity  onPress={()=>changeMusic(k)}  style={{width: '100%', flexDirection: 'row'}}>
               <Text style={styles.tableText}> <AntDesign name='play' size={15} color='#fff' />{val.name}</Text>
               <Text style={styles.tableText}>{val.artista}</Text>
               </TouchableOpacity>
@@ -97,7 +104,15 @@ export default function App() {
         }
       })  
       }
+    <View  style={{paddingBottom: 200}}></View>
+
     </ScrollView >
+
+<Player playing={playing} setPlaying={setPlaying} setarAudioIndex={setarAudioIndex} audioIndex={audioIndex}
+musicas={musicas} setMusicas={setMusicas} audio={audio} setAudio={setAudio}>
+
+</Player>
+ </View>
   );
 }
 
