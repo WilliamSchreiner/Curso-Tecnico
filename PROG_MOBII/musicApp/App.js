@@ -40,12 +40,12 @@ export default function App() {
     let newMusicas= musicas.filter((val, k) => {
       if(id == k){
       // tocar a musica
-        musicas[id].playing = true;
+        musicas[k].playing = true;
         curFile = musicas[k].file;
         setPlaying(true);
         setarAudioIndex(id);
       }else{
-        musicas[id].playing = false;
+        musicas[k].playing = false;
       } return musicas[k];
 
     })
@@ -63,7 +63,7 @@ export default function App() {
 
     }catch(erro){}
 
-    setAudio(newAudio);
+    setAudio(curAudio);
     setMusicas(newMusicas);
   }
 
@@ -74,44 +74,47 @@ export default function App() {
       <StatusBar hidden/>
 
       <View style={styles.header}>
-        <Text style={{textAlign: 'center', color: '#fff', fontSize: 22}}>Bird</Text>
+        <Text style={{textAlign: 'center', color: '#fff', fontSize: 27}}>Bird</Text>
       </View>
 
       <View style={styles.table}>
-        <Text style={{ color: '#fff', width:'50%'}}>Música</Text>
-        <Text style={{ color: '#fff', width:'50%'}}>Artista</Text>
+        <Text style={{ color: '#ADD8E6', width:'50%', marginLeft:30}}>Música</Text>
+        <Text style={{ color: '#ADD8E6', width:'50%'}}>Artista</Text>
       </View>
       {
-      musicas.map((val)=> {
+      musicas.map((val, k, Player)=> {
         if (val.playing){
           return(
             <View style={styles.table}>
               <TouchableOpacity  onPress={()=>changeMusic(k)} style={{width: '100%', flexDirection: 'row'}}>
-              <Text style={styles.tableTextSelected}> <AntDesign name='play' size={15} color='#fff' />{val.name}</Text>
+              <Text style={styles.tableTextSelected}> <AntDesign name='play' size={15} color='#ADD8E6' marginRight={25}/> {val.nome}</Text>
               <Text style={styles.tableTextSelected}>{val.artista}</Text>
               </TouchableOpacity>
+              
             </View>
           );
         }else{
           return(
             <View style={styles.table}>
               <TouchableOpacity  onPress={()=>changeMusic(k)}  style={{width: '100%', flexDirection: 'row'}}>
-              <Text style={styles.tableText}> <AntDesign name='play' size={15} color='#fff' />{val.name}</Text>
+              <Text style={styles.tableText}> <AntDesign name='play' size={15} color='#ADD8E6' marginRight={25} />{val.nome}</Text>
               <Text style={styles.tableText}>{val.artista}</Text>
               </TouchableOpacity>
+              
+              
             </View>
           );
         }
       })  
       }
-    <View  style={{paddingBottom: 200}}></View>
-
+<View  style={{paddingBottom: 200}}></View>
     </ScrollView >
-
-<Player playing={playing} setPlaying={setPlaying} setarAudioIndex={setarAudioIndex} audioIndex={audioIndex}
+    
+ 
+ <Player playing={playing} setPlaying={setPlaying} setarAudioIndex={setarAudioIndex} audioIndex={audioIndex}
 musicas={musicas} setMusicas={setMusicas} audio={audio} setAudio={setAudio}>
-
 </Player>
+
  </View>
   );
 }
@@ -122,22 +125,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   header: {
-    backgroundColor: "gray",
+    backgroundColor: "#1E90FF",
     width: '100%',
     padding: 20
   },
   table: {
     flexDirection: 'row',
-    borderBottomColor: '#fff',
+    borderBottomColor: '#ADD8E6',
     borderBottomWidth: 1,
     padding: 20
   },
-  tableTextSelect: {
+  tableTextSelected: {
     width: '50%',
-    color: '#fff'
+    color: '#ADD8E6'
   },
   tableText: {
     width: '50%',
-    color: '#fff'
+    color: '#ADD8E6'
   }
 });

@@ -141,10 +141,8 @@ return(
 </TouchableOpacity>
     }
               <TouchableOpacity onPress={()=>handNext()} style={{marginRight:20, marginLeft:20}}>
-               <AntDesign name='forward' size={35} color="white"></AntDesign>
+               <AntDesign name='forward' size={35} color="#fff"></AntDesign>
               </TouchableOpacity>
-              
-            
         </View>
     </View>
     
@@ -152,7 +150,7 @@ return(
 }
 const styles = StyleSheet.create({
     player: {
-        backgroundColor: "gray",
+        backgroundColor: "#1E90FF",
         width: '100%',
         height: 100,
         padding: 20,
