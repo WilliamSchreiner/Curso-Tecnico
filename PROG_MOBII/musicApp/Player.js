@@ -126,22 +126,22 @@ export default function Player(props){
 
 return(
     <View style={styles.player}>
-        <View >
+        <View style={styles.boxes}>
               <TouchableOpacity  onPress={()=>handBack()} style={{marginRight: 20, marginLeft:20}}>
-               <AntDesign name='banckward' size={35} color='#fff' />
+               <AntDesign name='banckward' size={23} color='#fff' />
               </TouchableOpacity>
 
 { (!props.playing)?
 <TouchableOpacity onPress={()=>handPlay()} style={{marginRight: 20, marginLeft:20}}>
-    <AntDesign name='playcircleo' size={35} color='#fff' />
+    <AntDesign name='playcircleo' size={23} color='#fff' />
 </TouchableOpacity>:
 
 <TouchableOpacity onPress={()=>handPause()} style={{marginRight: 20, marginLeft:20}}>
-    <AntDesign name='pausecircleo' size={35} color='#fff' />
+    <AntDesign name='pausecircleo' size={23} color='#fff' />
 </TouchableOpacity>
     }
               <TouchableOpacity onPress={()=>handNext()} style={{marginRight:20, marginLeft:20}}>
-               <AntDesign name='forward' size={35} color="#fff"></AntDesign>
+               <AntDesign name='forward' size={23} color="#fff"></AntDesign>
               </TouchableOpacity>
         </View>
     </View>
@@ -150,17 +150,19 @@ return(
 }
 const styles = StyleSheet.create({
     player: {
-        backgroundColor: "#1E90FF",
         width: '100%',
-        height: 100,
+        height: 30,
         padding: 20,
-        position: 'absolute',
         bottom:0,
         left:0,
         zIndex:999,
+        marginTop: 8,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row'
+    },
+    boxes: {
+      flexDirection: 'row'
     }
   });
   
