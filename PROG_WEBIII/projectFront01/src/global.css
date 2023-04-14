@@ -8,18 +8,21 @@
 }
 
 :root {
-    --green:#00b37e;
-    --gray-light:#e1e1e6;
+    --purple:#A020F0;
+     /*cores para texto*/
+     --gray-light:#e1e1e6;
     --gray-dark:#8d8d99;
-    --color-bg-dark:#202024;
-    --color-line:#323238;
+
+    /*cores para background*/
+    --color-bg-dark:#1b131b;
+    --color-line:#A020F0;
 
     font-size: 62.5%;
 }
 
 body{
-    background-color: var(--color-bg-dark);
-    color: var(--gray-light);
+    background-color: #000000;
+    color: var(--dark);
 
 }
 
