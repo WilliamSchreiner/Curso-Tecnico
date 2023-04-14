@@ -2,12 +2,13 @@
 import './global.css'
 
 import style from './App.module.css'
+import CardPerson from './components/CardPerson'
 
 export function App() {
 
   return (
    <div className={style.container}>
-      <div className={style.card}>
+      <div className={style.card}>    
         <img
           src="https://images.unsplash.com/photo-1536227661368-deef57acf708?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
           alt="Cover"
@@ -28,6 +29,7 @@ export function App() {
           <span>#Pirueta</span>
         </div>
       </div>
+      <CardPerson> </CardPerson>
     </div>
   )
 }
