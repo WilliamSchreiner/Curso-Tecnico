@@ -3,7 +3,7 @@ import './global.css'
 
 import style from './App.module.css'
 import CardPerson from './components/CardPerson'
-
+//import {CardPerson} from './components/CardPerson' - exportação sem o default
 export function App() {
 
   return (
@@ -20,6 +20,7 @@ export function App() {
         />
         <p className={style.p1}>William Schreiner</p>
         <p className={style.p2}>Jovem Aprendiz desenvovedor</p>
+        <CardPerson> </CardPerson>
         <div className={style.stack}>
           <span>#Humano</span>
           <span>#AtéAMorte</span>
@@ -29,7 +30,7 @@ export function App() {
           <span>#Pirueta</span>
         </div>
       </div>
-      <CardPerson> </CardPerson>
+      
     </div>
   )
 }
