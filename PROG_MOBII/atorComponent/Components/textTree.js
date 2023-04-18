@@ -1,4 +1,4 @@
-importcreate stylesBody from './style';
+import stylesBody from './style';
 import React from 'react';
 import {  Text, View, img } from 'react-native';
 
