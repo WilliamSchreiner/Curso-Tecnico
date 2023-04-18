@@ -4,8 +4,8 @@ import {  Text, View, img } from 'react-native';
 
  export default function TextFirst() {
     return (   
-      <View style={styles.header}> 
-      <Text style={styles.title}>Ator famoso</Text>
+      <View style={stylesBody.header}> 
+      <Text style={stylesBody.title}>Ator famoso</Text>
       </View>   
     );
   };

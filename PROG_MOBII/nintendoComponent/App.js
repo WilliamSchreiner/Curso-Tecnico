@@ -1,5 +1,5 @@
 
-import {  StyleSheet, Text, View , img} from 'react-native';
+import {  StyleSheet, View, Image } from 'react-native';
 
 import TextFirst from './Components/textFirst';
 import TextSecond from './Components/textSecond';
