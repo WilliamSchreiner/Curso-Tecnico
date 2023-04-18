@@ -18,7 +18,7 @@ const stylesBody = StyleSheet.create({
     textTop: {
       height: 50,
       width: '100%',
-      textSize: 25,
+      fontSize: 25,
       color: '#fff',
     
     },
@@ -35,7 +35,7 @@ const stylesBody = StyleSheet.create({
       width: '100%'
     },
     textBottom: {
-    textSize: 14,
+    fontSize: 14,
     },
   });
 

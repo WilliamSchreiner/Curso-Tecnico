@@ -1,6 +1,6 @@
 import stylesBody from './style';
 import React from 'react';
-import {  Text, View, img } from 'react-native';
+import {  Text, View,} from 'react-native';
 
  export default function TextFirst() {
     return (   
