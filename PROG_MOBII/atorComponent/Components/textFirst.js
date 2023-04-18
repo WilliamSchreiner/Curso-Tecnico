@@ -5,8 +5,7 @@ import {  Text, View, img } from 'react-native';
  export default function TextFirst() {
     return (   
       <View style={styles.header}> 
-      <img style={styles.logo}>Logo</img>
-      <Text style={styles.textTop}>Nintendo Swicht</Text>
+      <Text style={styles.title}>Ator famoso</Text>
       </View>   
     );
   };
