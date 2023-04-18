@@ -10,8 +10,10 @@ const stylesBody = StyleSheet.create({
       marginTop: -400,
     },
     logo: {
-      hength: 200,
-      width: '100%'
+      marginTop: 30,
+      minHeight: 150,
+      width: '100%',
+      paddingBottom: 30
     },
     textTop: {
       height: 50,
@@ -27,11 +29,10 @@ const stylesBody = StyleSheet.create({
       height: 50,
       width: '100%',
       textSize: 25,
-
     },
     image: {
-    hength: 100,
-    width: 100
+      minHeight: 120,
+      width: '100%'
     },
     textBottom: {
     textSize: 14,
