@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import { FontAwesome, Entypo, MaterialIcons } from '@expo/vector-icons';
 
 import Inicio from './Components/inicio'
 import Contatos from './Components/contatos'
