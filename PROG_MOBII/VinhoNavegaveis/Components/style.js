@@ -41,19 +41,31 @@ const stylesBody = StyleSheet.create({
         border: 'solid',
         borderWidth: 1,
         borderRadius: 15,
-        height:'40%',
+        height:'60%',
         width: '90%',
         marginBottom: '5%',
-        alignItems: 'center'
+        textAlign: 'right',
+        flexDirection: 'row',
+        backgroundColor: '#ab887c'
     },
     vinhoImg:{
         height: '80%',
-        width: '30%'
+        width: '30%',
+        marginTop: 15
     },
-    vinhoBoxTextos:{},
-    titleBoxVinho:{},
-    textBoxVinho:{},
-
+    vinhoBoxTextos:{
+        textAlign: 'left',
+        width: '50%',
+        marginLeft: 20
+    },
+    titleBoxVinho:{
+        marginTop:5,
+        fontSize: 18
+    },
+    textBoxVinho:{
+        marginTop:5,
+        fontSize: 15
+    },
     contato:{
     backgroundColor: '#fff',
     height:'100%',

@@ -34,9 +34,24 @@ export default function App() {
           tabBarInactiveTintColor: "#ab887c",
           tabBarActiveBackgroundColor: "#400303",
         }}>
-          <Tabs.Screen name="Inicio"  component = {Inicio}/>
-          <Tabs.Screen name="Catalogo"component ={Catalogo}/>
-          <Tabs.Screen name="Contatos"component = {Contatos}/>
+          <Tabs.Screen name="Inicio"  component = {Inicio} 
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Entypo name="home" color={ color } size={ 20 } />
+            ),
+          }}/>
+          <Tabs.Screen name="Catalogo"component ={Catalogo}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Entypo name="" color={ color } size={ 20 } />
+            ),
+          }}/>
+          <Tabs.Screen name="Contatos"component = {Contatos}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Entypo name="book" color={ color } size={ 20 } />
+            ),
+          }}/>
         </Tabs.Navigator>
       </NavigationContainer>
     </View>
