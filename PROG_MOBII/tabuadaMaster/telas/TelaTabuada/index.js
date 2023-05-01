@@ -4,9 +4,10 @@ import { ImageBackground, View, Button } from 'react-native';
 import estilo from './estilo';
 import tabuada from '../../assets/tabuada.jpeg';
 
-const TelaTabuada = () => {
+//Ordem para navegação
+const TelaTabuada = (props) => {
   const voltar = () => {
-    alert("Inicio");
+     props.navigation.navigate('Inicio');
   }
 
   return (

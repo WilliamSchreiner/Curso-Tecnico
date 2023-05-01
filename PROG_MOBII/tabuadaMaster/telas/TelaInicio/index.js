@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { View, Text, Button, TextInput, ImageBackground } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
 
 import { validarResposta, gerarNumero } from "./funcoes";
 
 import estilo from './estilo';
 import fundo from '../../assets/fundo.png';
 
-const TelaInicio = () => {
+const TelaInicio = (props) => {
   const [ primeiroNumero, setPrimeiroNumero ] = useState(1);
   const [ segundoNumero, setSegundoNumero ] = useState(1);
   const [ respostaUsuario, setRespostaUsuario ] = useState(0);
@@ -17,18 +18,18 @@ const TelaInicio = () => {
     setRespostaUsuario("");
   }
 
+  //Ordens para navegação
   const responder = () => {
     if ( validarResposta(primeiroNumero, segundoNumero, respostaUsuario) ) {
-      alert('A resposta está correta');
+      props.navigation.navigate('RespostaCorreta');
     } else {
-      alert('A resposta está errada');
+      props.navigation.navigate('RespostaErrada');
     }
-
     criarQuestao();
   }
 
   const abrirTelaTabuada = () => {
-    alert('Tabuada');
+    props.navigation.navigate('Tabuada');
   }
 
   return (

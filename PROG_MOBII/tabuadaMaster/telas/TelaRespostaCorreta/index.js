@@ -4,9 +4,10 @@ import { Text, ImageBackground, View, Button } from 'react-native';
 import trofeu from '../../assets/trofeu.jpg';
 import estilo from './estilo';
 
-const TelaRespostaCorreta = () => {
+//Ordem para navegação
+const TelaRespostaCorreta = (props) => {
   const voltar = () => {
-    alert('voltar');
+    props.navigation.navigate('Inicio');
   }
 
   return (

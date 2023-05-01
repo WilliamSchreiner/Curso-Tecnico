@@ -4,13 +4,14 @@ import { Button, View, Text, ImageBackground } from 'react-native';
 import errou from '../../assets/errou.jpg';
 import estilo from './estilo';
 
-const TelaRespostaErrada = () => {
+//Ordens para navegação
+const TelaRespostaErrada = (props) => {
   const abrirTelaTabuada = () => {
-    alert('Tabuada');
+    props.navigation.navigate('Tabuada');
   }
 
   const voltar = () => {
-    alert('Voltar');
+    props.navigation.navigate('Inicio');
   }
 
   return (
