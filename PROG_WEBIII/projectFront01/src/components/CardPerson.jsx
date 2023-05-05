@@ -4,7 +4,7 @@ import style from './CardPerson.module.css'
 import { Stack } from "./Stack"
 
 //Metodo 1 = função
-function CardPerson(){
+function CardPerson({  stacks }){
     return  <div className={style.card}>    
     <img
       src="https://images.unsplash.com/photo-1536227661368-deef57acf708?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -25,7 +25,7 @@ function CardPerson(){
       </div>
   </div>
 }
-export default Cardperson()
+export default CardPerson()
 
 //Metodo 1.1 = função
 //export function CardPerson(){
