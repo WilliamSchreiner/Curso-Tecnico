@@ -1,5 +1,7 @@
 import React from "react";
-import style from './CardPerson.modulos.css'
+import style from './CardPerson.module.css'
+
+import { Stack } from "./Stack"
 
 //Metodo 1 = função
 function CardPerson(){
@@ -17,13 +19,10 @@ function CardPerson(){
     <p className={style.p2}>Jovem Aprendiz desenvovedor</p>
     <CardPerson> </CardPerson>
     <div className={style.stack}>
-      <span>#Humano</span>
-      <span>#AtéAMorte</span>
-      <span>#Sextou!</span>
-      <span>#Anão</span>
-      <span>#Dando</span>
-      <span>#Pirueta</span>
-    </div>
+        {stacks.map((stack) => {
+          return <Stack key={stack} name={stack.Tag} cor={stack.color} />;
+        })}
+      </div>
   </div>
 }
 export default Cardperson()
