@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+}
+.title {
+  color: var(--color-line-contato);
+  font-size: 3rem;
+}
+.cadastro {
+  color: #321cf1;
+  margin-left: 6rem;
+  font-size: 2rem;
+}
+.contatos {
+  flex-direction: column;
+  margin-left: 20rem;
+}
+.input {
+background-color: #1432dd93;
+height: 3rem;
+width: 30rem;
+
+}

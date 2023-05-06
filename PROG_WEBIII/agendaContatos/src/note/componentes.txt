@@ -1,0 +1,41 @@
+import React from "react";
+
+//Método 1
+// function CardPerson() {
+//   return <p>Componente</p>;
+// }
+
+// export default CardPerson();
+
+//Método 2
+
+// const CardPerson = () => {
+//   return <p>Componente </p>;
+// };
+
+// export default CardPerson;
+
+//Método 3
+
+// export default () => {
+//   return <p>Componente</p>;
+// };
+
+//Método 3.1
+
+// export default () => (
+//   <>
+//     <p>Componente</p>
+//     <p>Componente</p>
+//   </>
+// );
+
+//Método 4
+
+export function CardPerson() {
+  return (
+    <>
+      <p>Componente</p>
+    </>
+  );
+}
