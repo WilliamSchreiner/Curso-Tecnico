@@ -2,7 +2,7 @@ import style from "./Home.module.css";
 import { CardPerson } from "../User/CardPerson";
 import { CardContato } from "../Contato/CardContatos";
 import {BsFillTrash3Fill } from "react-icons/bs";
-import {IoPencil, IoSearchOutline } from "react-icons/io5";
+import {IoPencil, IoSearchOutline, IoAdd } from "react-icons/io5";
 export function Home() {
 
   
@@ -22,7 +22,7 @@ export function Home() {
             <div className={style.headerContatos}>
             <h1 className={style.title}>Contatos</h1>
               <div  className={style.buttons}>
-              <button  className={style.buttom}> + </button>
+              <button  className={style.buttom}> <IoAdd /> </button>
               <button  className={style.buttom}> <IoPencil /> </button>
               <button  className={style.buttom}> <BsFillTrash3Fill /> </button>
             </div>

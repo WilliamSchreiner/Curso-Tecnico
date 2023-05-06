@@ -39,11 +39,15 @@
    background-color: #14226e8c;
    color: #fff;
    border-width: 0.1rem;
-   border-color: #321cf1;
+   border-color: #0b33e6;
    margin-left: 1rem;
    border-radius: 5px;
    font-size: 1.7rem;
-   box-shadow: 1px 2px 9px #0044ff;
+   padding-top: 0.3rem;
+   
+}
+.buttom:hover{
+  box-shadow: 1px 2px 9px #0044ff;
 }
 .pesquisa {
   align-items: center;
@@ -54,10 +58,10 @@
   height: 3.3rem;
   width: 5rem;
   border-width: 0.1rem;
-   border-color: #321cf1;
+  border-color: #0b33e6;
    color: #fff;
    font-size: 1.5rem;
-  
+   box-shadow: 1px 2px 5px  #0044ffa4;
    
 }
 .inputPesquisa {
@@ -65,9 +69,10 @@ background-color: #1432dd93;
 height: 3.5rem;
 width: 31rem;
 border-width: 0.1rem;
-   border-color: #321cf1;
+border-color: #0044ff;
    font-size: medium;
-   color: #fff
+   color: #fff;
+   box-shadow: 1px 2px 5px #0044ffa4;
 
 }
 .listaContatos {
