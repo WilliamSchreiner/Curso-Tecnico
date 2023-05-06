@@ -1,7 +1,8 @@
 import style from "./Home.module.css";
 import { CardPerson } from "../User/CardPerson";
 import { CardContato } from "../Contato/CardContatos";
-
+import {BsFillTrash3Fill } from "react-icons/bs";
+import {IoPencil, IoSearchOutline } from "react-icons/io5";
 export function Home() {
 
   
@@ -15,20 +16,26 @@ export function Home() {
     office= 'Jovem Aprendiz desenvovedor'/>
 
 <div className={style.contatos}>
-<div  className={style.cadastro}>
-      <h1 className={style.title}>Contatos</h1>
-            <form >
-            <button  className={style.buttom}> Adicionar </button>
-            <button  className={style.buttom}> Editar </button>
-            <button  className={style.buttom}> deletar </button>
-            <div className={style.divPesquisa}>
-            <button  className={style.buttomPesquisa}> Pesquisar </button>
+<div  className={style.controles}>
+  <form >
+      
+            <div className={style.headerContatos}>
+            <h1 className={style.title}>Contatos</h1>
+              <div  className={style.buttons}>
+              <button  className={style.buttom}> + </button>
+              <button  className={style.buttom}> <IoPencil /> </button>
+              <button  className={style.buttom}> <BsFillTrash3Fill /> </button>
+            </div>
+            </div>
+            
+            <div className={style.pesquisa}>
+            <button  className={style.buttomPesquisa}> <IoSearchOutline /> </button>
             <input type='text' name='pesquisa' className={style.inputPesquisa}/>
             </div>
             
             </form>
         </div>
-     
+    <div className={style.listaContatos}>
     <CardContato
     avatar="https://randomuser.me/api/portraits/men/58.jpg"
     name="Jayden Wright"
@@ -38,6 +45,7 @@ export function Home() {
     avatar="https://avatars.githubusercontent.com/u/110572740?v=4"
     name="Amilto Cavalão"
     numero= '(69) 8063-1056)'/>
+    </div>
     </div>
 </div>    
   );
