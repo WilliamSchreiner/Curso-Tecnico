@@ -35,16 +35,34 @@ export function Home() {
             
             </form>
         </div>
-    <div className={style.listaContatos}>
-    <CardContato
-    avatar="https://randomuser.me/api/portraits/men/58.jpg"
-    name="Jayden Wright"
-    numero= '(41) 9839-3029'/>
 
+<div className={style.listaContatos}>
+
+<div className={style.listaCatalogo}>
+  <h1 className={style.letraCatalogo}>A</h1>
+  <div className={style.contatoCatalogo}>
     <CardContato
     avatar="https://avatars.githubusercontent.com/u/110572740?v=4"
     name="Amilto Cavalão"
     numero= '(69) 8063-1056)'/>
+    <CardContato
+    avatar="https://randomuser.me/api/portraits/women/60.jpg"
+    name="Amanda-chan"
+    numero= '(62) 8023-1123)'/>
+  </div> 
+</div>
+
+<div className={style.listaCatalogo}>
+  <h1 className={style.letraCatalogo}>J</h1>
+  <div className={style.contatoCatalogo}>
+    <CardContato
+    avatar="https://randomuser.me/api/portraits/men/58.jpg"
+    name="Jayden Wright"
+    numero= '(41) 9839-3029'/>
+  </div>
+</div>
+    
+
     </div>
     </div>
 </div>    
