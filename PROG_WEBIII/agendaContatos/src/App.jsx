@@ -2,6 +2,7 @@ import style from "./App.module.css";
 
 import { CardPerson } from "./components/User/CardPerson";
 import { CardContato } from "./components/Contato/CardContatos";
+import { Cadastro } from "./components/cadastro";
 export function App() {
 
   return (
@@ -14,22 +15,8 @@ export function App() {
     office= 'Jovem Aprendiz desenvovedor'/>
 
 <div className={style.contatos}>
-    <div  className={style.cadastro}>
-      <h1 className={style.title}>Cadastro Contatos</h1>
-            <form >
-            <p> Nome </p>
-            <input type='text' name='nome' className={style.input}/>
-
-            <p> Avatar (imagem) </p>
-            <input type='text' name='imagem' className={style.input}/>
-
-            <p> Numero </p>
-            <input type='text' name='numero' className={style.input}/>
-
-            <button > Salvar </button>
-            </form>
-        </div> 
-
+     
+     <Cadastro />
     <CardContato
     avatar="https://randomuser.me/api/portraits/men/58.jpg"
     name="Jayden Wright"
