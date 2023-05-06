@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom'
 import style from "../App.module.css";
 
 export function Cadastro() {
@@ -16,7 +16,7 @@ export function Cadastro() {
             <p> Numero </p>
             <input type='text' name='numero' className={style.input}/>
 
-            <button  className={style.buttom}> Salvar </button>
+            <button  className={style.buttom}> Salvar </button> <Link to="/">Voltar</Link>
             </form>
         </div>
   );
