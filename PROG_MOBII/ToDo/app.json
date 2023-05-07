@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "books-dev",
-    "slug": "books-dev",
+    "name": "To Do list",
+    "slug": "To Do list",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
