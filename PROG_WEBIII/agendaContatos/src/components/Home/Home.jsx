@@ -30,7 +30,7 @@ export function Home() {
             
             <div className={style.pesquisa}>
             <button  className={style.buttomPesquisa}> <IoSearchOutline /> </button>
-            <input type='text' name='pesquisa' className={style.inputPesquisa}/>
+            <input type='text' name='pesquisa' className={style.inputPesquisa} placeholder="Busque por nome ou pelos dados do contato... "/>
             </div>
             
             </form>
