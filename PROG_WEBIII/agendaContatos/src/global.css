@@ -9,13 +9,20 @@
 
 :root {
   --purple:#A020F0;
+  --color-line:#A020F0;
+
    /*cores para texto*/
-   --gray-light:#e1e1e6;
+  --gray-light:#e1e1e6;
   --gray-dark:#8d8d99;
 
   /*cores para background*/
   --color-bg-dark:#1b131b;
-  --color-line:#A020F0;
+  --color-bg-blueLight:#29218d;
+  --color-bg-blueDark:#rgb(26, 21, 66);
+ 
+ 
+  /*cores para as sombras*/
+  --color-shadow-blue:#0004ffab;
 
   /*cores para os contatos*/
   --color-line-contato: #0026ff;

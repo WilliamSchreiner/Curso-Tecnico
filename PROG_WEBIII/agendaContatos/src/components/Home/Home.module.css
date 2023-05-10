@@ -8,7 +8,7 @@
 }
 .title {
   color: #fff;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 .controles {
   color: #321cf1;
@@ -19,66 +19,66 @@
   flex-direction: column;
   margin-left: 20rem;
   background-color: #14226e8c;
-  border-radius: 5 ;
+  border-radius: 3rem ;
+  
+  box-shadow: 3px 4px 11px var(--color-shadow-blue);
 }
 .headerContatos {
   display: flex;
   flex: 1;
   flex-direction: row;
   padding-bottom: 1rem;
-
+  
 }
 .buttons {
   margin-top: 1rem;
-  margin-left: 5rem;
+  margin-left: 7rem;
 }
 .buttom {
   height: 3.4rem;
   width:  3.4rem;
   align-items: center;
-   background-color: #14226e8c;
-   color: #fff;
-   border-width: 0.1rem;
-   border-color: #0b33e6;
-   margin-left: 1rem;
-   border-radius: 5px;
-   font-size: 1.7rem;
-   padding-top: 0.3rem;
+  background-color: var(--color-bg-blueDark);
+  color: #fff;
+  border: transparent;
+  margin-left: 0,.5rem;
+  font-size: 1.7rem;
+  padding-top: 0.3rem;
    
-}
-.buttom:hover{
-  box-shadow: 1px 2px 9px #0044ff;
 }
 .pesquisa {
   align-items: center;
   margin-bottom: 1.5rem;
+  background-color: var(--color-bg-blueLight);
+  border-radius: 10;
+  margin-right: 5rem;
 }
 .buttomPesquisa {
-  background-color: #1432dd93;
+  background-color: var(--color-bg-blueLight);
   height: 3.3rem;
   width: 5rem;
-  border-width: 0.1rem;
-  border-color: #0b33e6;
-   color: #fff;
-   font-size: 1.5rem;
-   box-shadow: 1px 2px 5px  #0044ffa4;
-   
+  border: transparent;
+  color: #fff;
+  font-size: 1.5rem;
+  border-top-left-radius: 10;
+  border-top-left-radius: 10;
 }
 .inputPesquisa {
-background-color: #1432dd93;
-height: 3.5rem;
-width: 31rem;
-border-width: 0.1rem;
-border-color: #0044ff;
-   font-size: medium;
-   color: #fff;
-   box-shadow: 1px 2px 5px #0044ffa4;
-
+  background-color: var(--color-bg-blueLight);
+  height: 3.5rem;
+  width: 38.5rem;
+  border: transparent ;
+  font-size: medium;
+  color: #fff;
+  border-top-right-radius: 10;
+  border-top-right-radius: 10;
 }
 .listaContatos {
   background-color: var(--color-bg-dark);
   padding: 2rem;
-  
+  width: 100%;
+  border-bottom-left-radius: 3rem ;
+  border-bottom-right-radius: 3rem ;
 }
 
 .listaCatalogo {
@@ -89,10 +89,9 @@ border-color: #0044ff;
 .letraCatalogo {
   height: 4rem;
   width: 4rem;
-  border-radius: 60px;
+  border-radius: 5px;
   background-color: var(--color-bg-dark);
-  border: 1px solid #e6ff01;
-  box-shadow: 1px 2px 5px #e8fd24;
+  border: 1px solid  var(--gray-dark);
   font-size: 2rem;
   margin-right: 4rem;
   margin-top: 4rem;

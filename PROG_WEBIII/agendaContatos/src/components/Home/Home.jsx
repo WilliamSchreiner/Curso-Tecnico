@@ -20,7 +20,7 @@ export function Home() {
   <form >
       
             <div className={style.headerContatos}>
-            <h1 className={style.title}>Contatos</h1>
+            <h1 className={style.title}>Meus contatos</h1>
               <div  className={style.buttons}>
               <button  className={style.buttom}> <IoAdd /> </button>
               <button  className={style.buttom}> <IoPencil /> </button>
