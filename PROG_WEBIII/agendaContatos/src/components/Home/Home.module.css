@@ -50,7 +50,7 @@
   align-items: center;
   margin-bottom: 1.5rem;
   background-color: var(--color-bg-blueLight);
-  border-radius: 10;
+  border-radius: 7rem;
   margin-right: 5rem;
 }
 .buttomPesquisa {
@@ -60,8 +60,8 @@
   border: transparent;
   color: #fff;
   font-size: 1.5rem;
-  border-top-left-radius: 10;
-  border-top-left-radius: 10;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
 }
 .inputPesquisa {
   background-color: var(--color-bg-blueLight);
@@ -70,8 +70,8 @@
   border: transparent ;
   font-size: medium;
   color: #fff;
-  border-top-right-radius: 10;
-  border-top-right-radius: 10;
+  border-top-right-radius: 6rem;
+  border-bottom-right-radius: 6rem;
 }
 .listaContatos {
   background-color: var(--color-bg-dark);
