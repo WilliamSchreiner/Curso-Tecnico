@@ -1,11 +1,42 @@
+//import style
 import style from "./Home.module.css";
+//imports cards
 import { CardPerson } from "../User/CardPerson";
 import { CardContato } from "../Contato/CardContatos";
+//imports Icons
 import {BsFillTrash3Fill } from "react-icons/bs";
 import {IoPencil, IoSearchOutline, IoAdd } from "react-icons/io5";
-export function Home() {
+//import Axios e React
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-  
+export function Home() {
+   //list person
+   const [persons, setPersons] = useState([]);
+   //caracteristicas person
+   const [name, setName] = useState("");
+   const [avatar, setAvatar] = useState("");
+   const [cell, setCell] = useState("");
+
+  async function  Adicionar(){
+     event.preventDefault();
+     const data = await axios.get("https://randomuser.me/api/");
+
+    setName(data.data.results[0].name.first);
+    setAvatar(data.data.results[0].picture.large);
+    setCell(data.data.results[0].cell);
+
+    let person = {
+      name: name,
+      avatar: avatar,
+      cell: cell
+    };
+
+    persons.push(person);
+    console.log(persons);
+
+  }
+
   return (
     <div className={style.container}>
 
@@ -22,7 +53,7 @@ export function Home() {
             <div className={style.headerContatos}>
             <h1 className={style.title}>Meus contatos</h1>
               <div  className={style.buttons}>
-              <button  className={style.buttom}> <IoAdd /> </button>
+              <button  className={style.buttom} onClick={Adicionar}> <IoAdd /> </button>
               <button  className={style.buttom}> <IoPencil /> </button>
               <button  className={style.buttom}> <BsFillTrash3Fill /> </button>
             </div>
