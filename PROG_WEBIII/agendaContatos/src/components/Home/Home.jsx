@@ -10,6 +10,8 @@ import {IoPencil, IoSearchOutline, IoAdd } from "react-icons/io5";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+import  {PersonService} from "./Home.service"
+
 export function Home() {
    //list person
    const [persons, setPersons] = useState([]);
@@ -17,6 +19,13 @@ export function Home() {
    const [name, setName] = useState("");
    const [avatar, setAvatar] = useState("");
    const [cell, setCell] = useState("");
+
+
+
+   useEffect(() => {
+    setPersons(PersonService.list)
+}, []);
+
 
   async function  Adicionar(){
      event.preventDefault();
@@ -32,10 +41,11 @@ export function Home() {
       cell: cell
     };
 
-    persons.push(person);
-    console.log(persons);
+    if (person) {PersonService.salvar(person);}
+    console.log(person);
 
   }
+
 
   return (
     <div className={style.container}>
@@ -55,12 +65,13 @@ export function Home() {
               <div  className={style.buttons}>
               <button  className={style.buttom} onClick={Adicionar}> <IoAdd /> </button>
               <button  className={style.buttom}> <IoPencil /> </button>
-              <button  className={style.buttom}> <BsFillTrash3Fill /> </button>
+              <button  className={style.buttom} > <BsFillTrash3Fill /> </button>
             </div>
             </div>
             
             <div className={style.pesquisa}>
             <button  className={style.buttomPesquisa}> <IoSearchOutline /> </button>
+            
             <input type='text' name='pesquisa' className={style.inputPesquisa} placeholder="Busque por nome ou pelos dados do contato... "/>
             </div>
             
@@ -70,27 +81,22 @@ export function Home() {
 <div className={style.listaContatos}>
 
 <div className={style.listaCatalogo}>
-  <h1 className={style.letraCatalogo}>A</h1>
+  <h1 className={style.letraCatalogo}>All</h1>
   <div className={style.contatoCatalogo}>
-    <CardContato
-    avatar="https://avatars.githubusercontent.com/u/110572740?v=4"
-    name="Amilto Cavalão"
-    numero= '(69) 8063-1056)'/>
-    <CardContato
-    avatar="https://randomuser.me/api/portraits/women/60.jpg"
-    name="Amanda-chan"
-    numero= '(62) 8023-1123)'/>
-  </div> 
-</div>
+  {
+              persons.map(person => (
+      <div>
+        <CardContato key={person.id}
+    avatar= {person.avatar}
+    name= {person.name}
+    numero= {person.cell} />
+    </div>
+    
+              ))
+            }
 
-<div className={style.listaCatalogo}>
-  <h1 className={style.letraCatalogo}>J</h1>
-  <div className={style.contatoCatalogo}>
-    <CardContato
-    avatar="https://randomuser.me/api/portraits/men/58.jpg"
-    name="Jayden Wright"
-    numero= '(41) 9839-3029'/>
-  </div>
+
+  </div> 
 </div>
     
 
