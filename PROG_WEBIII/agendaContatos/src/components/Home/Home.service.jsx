@@ -18,6 +18,15 @@ export class PersonService {
         }
     }
 
+    static deletar(id) {
+        const rowIndex  = PersonService.list.findIndex(row => row.id === id)
+
+        if(rowIndex > -1){
+            PersonService.list.slice(rowIndex, 1);
+      
+          }
+    }
+
     static buscarPorId(id){
         return this.list.find(person => person.id === id)
     }

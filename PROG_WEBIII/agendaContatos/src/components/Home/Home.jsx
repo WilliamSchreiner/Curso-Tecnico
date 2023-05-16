@@ -45,6 +45,10 @@ export function Home() {
     console.log(person);
 
   }
+  function Deletar(id) {
+    event.preventDefault();
+    if(id) {PersonService.deletar(id)}
+  }
 
 
   return (
@@ -65,7 +69,7 @@ export function Home() {
               <div  className={style.buttons}>
               <button  className={style.buttom} onClick={Adicionar}> <IoAdd /> </button>
               <button  className={style.buttom}> <IoPencil /> </button>
-              <button  className={style.buttom} > <BsFillTrash3Fill /> </button>
+              
             </div>
             </div>
             
@@ -90,8 +94,8 @@ export function Home() {
     avatar= {person.avatar}
     name= {person.name}
     numero= {person.cell} />
+    <button  className={style.buttom} onClick={Deletar(person.id)}> <BsFillTrash3Fill /> </button>
     </div>
-    
               ))
             }
 
