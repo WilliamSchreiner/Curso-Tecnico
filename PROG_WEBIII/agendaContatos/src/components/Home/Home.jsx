@@ -19,7 +19,9 @@ export function Home() {
    const [name, setName] = useState("");
    const [avatar, setAvatar] = useState("");
    const [cell, setCell] = useState("");
+   const [cache, setCache] = useState("");
 
+   const table = "person"
 
 
    useEffect(() => {
@@ -36,18 +38,24 @@ export function Home() {
     setCell(data.data.results[0].cell);
 
     let person = {
+  
       name: name,
       avatar: avatar,
       cell: cell
     };
 
-    if (person) {PersonService.salvar(person);}
+    if (person) {PersonService.salvar(table, person);}
     console.log(person);
 
   }
-  function Deletar(id) {
+
+  function Cache(id) {
     event.preventDefault();
-    if(id) {PersonService.deletar(id)}
+    if(id) {setCache(id)}
+  }
+
+  function Deletar() {
+    event.preventDefault();
   }
 
 
@@ -69,6 +77,7 @@ export function Home() {
               <div  className={style.buttons}>
               <button  className={style.buttom} onClick={Adicionar}> <IoAdd /> </button>
               <button  className={style.buttom}> <IoPencil /> </button>
+              <button  className={style.buttom} onClick={Deletar()}> <BsFillTrash3Fill /> </button>
               
             </div>
             </div>
@@ -89,12 +98,14 @@ export function Home() {
   <div className={style.contatoCatalogo}>
   {
               persons.map(person => (
-      <div>
-        <CardContato key={person.id}
+      <div key={person.id}>
+        <CardContato
     avatar= {person.avatar}
     name= {person.name}
-    numero= {person.cell} />
-    <button  className={style.buttom} onClick={Deletar(person.id)}> <BsFillTrash3Fill /> </button>
+    numero= {person.cell}  
+    //onClick={Cache(person.id)}
+    />
+   
     </div>
               ))
             }
