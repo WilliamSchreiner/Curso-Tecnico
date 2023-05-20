@@ -13,5 +13,5 @@ server.use(express.json());
 server.use(router);
 
 server.listen(port, () => {
-  console.log(`Server Running - end: http://localhost:${port}`);
+  console.log(`Server On- <(°-°)> - end: http://localhost:${port}`);
 });
