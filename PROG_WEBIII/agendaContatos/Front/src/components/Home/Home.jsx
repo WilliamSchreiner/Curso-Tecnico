@@ -14,7 +14,8 @@ import { api, server } from "../../api/axios";
 export function Home() {
 
    //list person
-   const [persons, setPersons] = useState([]);
+
+   let persons = []
    
    const [cache, setCache] = useState("");
 
@@ -25,8 +26,9 @@ export function Home() {
   async function Load() {
     const temp = await server.get("user/");
     console.log(temp)
+
+    persons = temp.data;
     
-    setPersons(JSON.stringify(temp.data, null, 2));
     console.log(persons);
   }
 
@@ -42,11 +44,11 @@ export function Home() {
     const avatar = user.picture.large;
     const cell = user.cell;
     
-    //const resultSERVER = await server.post("user/", {
-    //  name: nomeCompleto,
-    //  avatar: avatar,
-    //  celular: cell,
-    //});
+    const resultSERVER = await server.post("user/", {
+    name: nomeCompleto,
+    avatar: avatar,
+    celular: cell,
+    });
     Load();
   }
 
@@ -99,6 +101,16 @@ setCache(id)
   <h1 className={style.letraCatalogo}>All</h1>
   <div className={style.contatoCatalogo}>
 
+  {
+              persons?.map((person, index) => (
+                <CardContato key= {index}
+                avatar = {person.avatar}
+                name=  {person.name}
+                contato=  {person.celular}
+                />
+
+              ))
+            }
 
   </div> 
 </div>
