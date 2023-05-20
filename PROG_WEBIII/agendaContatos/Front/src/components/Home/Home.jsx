@@ -19,9 +19,16 @@ export function Home() {
    const [cache, setCache] = useState("");
 
    useEffect(() => {
-    
+    Load()
 }, []);
 
+  async function Load() {
+    const temp = await server.get("user/");
+    console.log(temp)
+    
+    setPersons(JSON.stringify(temp.data, null, 2));
+    console.log(persons);
+  }
 
   async function Adicionar(){
     event.preventDefault();
@@ -32,16 +39,16 @@ export function Home() {
     const user = resultAPI.data.results[0];
 
     const nomeCompleto = `${user.name.first} ${user.name.last}`;
-    const avatar = `${user.picture.large}`;
-    const cell = `${user.cell}`;
+    const avatar = user.picture.large;
+    const cell = user.cell;
     
-    const resultSERVER = await server.post("user/", {
-      name: nomeCompleto,
-      avatar: avatar,
-      celular: cell,
-    });
-
-    console.log(resultSERVER);}
+    //const resultSERVER = await server.post("user/", {
+    //  name: nomeCompleto,
+    //  avatar: avatar,
+    //  celular: cell,
+    //});
+    Load();
+  }
 
   function Deletar(id) {
 
@@ -91,16 +98,6 @@ setCache(id)
 <div className={style.listaCatalogo}>
   <h1 className={style.letraCatalogo}>All</h1>
   <div className={style.contatoCatalogo}>
-  {
-              persons.map(person => (
-      <div>
-        <CardContato key={person.id}
-        avatar= {person.avatar}
-        name= {person.name}
-        numero= {person.cell}/>
-    </div>
-              ))
-            }
 
 
   </div> 
