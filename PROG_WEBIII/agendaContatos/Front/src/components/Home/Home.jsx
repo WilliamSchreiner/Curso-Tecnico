@@ -12,26 +12,17 @@ import { api, server } from "../../api/axios";
 
 
 export function Home() {
-<<<<<<< HEAD:PROG_WEBIII/agendaContatos/Front/src/components/Home/Home.jsx
-=======
+
    //list person
    const [persons, setPersons] = useState([]);
-   //caracteristicas person
-   const [name, setName] = useState("");
-   const [avatar, setAvatar] = useState("");
-   const [cell, setCell] = useState("");
+   
    const [cache, setCache] = useState("");
-
-   const table = "person"
-
->>>>>>> f857754e59bb8ec1fcd028ce604e85200c23d9e3:PROG_WEBIII/agendaContatos/src/components/Home/Home.jsx
 
    useEffect(() => {
     
 }, []);
 
 
-<<<<<<< HEAD:PROG_WEBIII/agendaContatos/Front/src/components/Home/Home.jsx
   async function Adicionar(){
     event.preventDefault();
     console.log("função add");
@@ -44,46 +35,13 @@ export function Home() {
     const avatar = `${user.picture.large}`;
     const cell = `${user.cell}`;
     
-
-    setDataRequest(nomeFull);
     const resultSERVER = await server.post("user/", {
       name: nomeCompleto,
-      imagem: avatar,
+      avatar: avatar,
       celular: cell,
     });
 
-    console.log(resultSERVER);
-
-=======
-  async function  Adicionar(){
-     event.preventDefault();
-     const data = await axios.get("https://randomuser.me/api/");
-
-    setName(data.data.results[0].name.first);
-    setAvatar(data.data.results[0].picture.large);
-    setCell(data.data.results[0].cell);
-
-    let person = {
-  
-      name: name,
-      avatar: avatar,
-      cell: cell
-    };
-
-    if (person) {PersonService.salvar(table, person);}
-    console.log(person);
-
-  }
-
-  function Cache(id) {
-    event.preventDefault();
-    if(id) {setCache(id)}
-  }
-
-  function Deletar() {
-    event.preventDefault();
->>>>>>> f857754e59bb8ec1fcd028ce604e85200c23d9e3:PROG_WEBIII/agendaContatos/src/components/Home/Home.jsx
-  }
+    console.log(resultSERVER);}
 
   function Deletar(id) {
 
@@ -114,11 +72,7 @@ setCache(id)
               <div  className={style.buttons}>
               <button  className={style.buttom} onClick={Adicionar}> <IoAdd /> </button>
               <button  className={style.buttom}> <IoPencil /> </button>
-<<<<<<< HEAD:PROG_WEBIII/agendaContatos/Front/src/components/Home/Home.jsx
               <button  className={style.buttom} onClick={Deletar(cache)}> <BsFillTrash3Fill /> </button>
-=======
-              <button  className={style.buttom} onClick={Deletar()}> <BsFillTrash3Fill /> </button>
->>>>>>> f857754e59bb8ec1fcd028ce604e85200c23d9e3:PROG_WEBIII/agendaContatos/src/components/Home/Home.jsx
               
             </div>
             </div>
@@ -139,22 +93,11 @@ setCache(id)
   <div className={style.contatoCatalogo}>
   {
               persons.map(person => (
-<<<<<<< HEAD:PROG_WEBIII/agendaContatos/Front/src/components/Home/Home.jsx
       <div>
         <CardContato key={person.id}
         avatar= {person.avatar}
         name= {person.name}
         numero= {person.cell}/>
-=======
-      <div key={person.id}>
-        <CardContato
-    avatar= {person.avatar}
-    name= {person.name}
-    numero= {person.cell}  
-    //onClick={Cache(person.id)}
-    />
-   
->>>>>>> f857754e59bb8ec1fcd028ce604e85200c23d9e3:PROG_WEBIII/agendaContatos/src/components/Home/Home.jsx
     </div>
               ))
             }
