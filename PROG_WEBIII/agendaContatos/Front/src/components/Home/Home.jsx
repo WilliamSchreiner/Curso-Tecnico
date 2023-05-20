@@ -6,55 +6,57 @@ import { CardContato } from "../Contato/CardContatos";
 //imports Icons
 import {BsFillTrash3Fill } from "react-icons/bs";
 import {IoPencil, IoSearchOutline, IoAdd } from "react-icons/io5";
-//import Axios e React
-import axios from "axios";
-import { useState, useEffect } from "react";
 
-import  {PersonService} from "./Home.service"
+import { useEffect, useState } from "react";
+import { api, server } from "../../api/axios";
+
 
 export function Home() {
-   //list person
-   const [persons, setPersons] = useState([]);
-   //caracteristicas person
-   const [name, setName] = useState("");
-   const [avatar, setAvatar] = useState("");
-   const [cell, setCell] = useState("");
-
-
 
    useEffect(() => {
-    setPersons(PersonService.list)
+    
 }, []);
 
 
-  async function  Adicionar(){
-     event.preventDefault();
-     const data = await axios.get("https://randomuser.me/api/");
-
-    setName(data.data.results[0].name.first);
-    setAvatar(data.data.results[0].picture.large);
-    setCell(data.data.results[0].cell);
-
-    let person = {
-      name: name,
-      avatar: avatar,
-      cell: cell
-    };
-
-    if (person) {PersonService.salvar(person);}
-    console.log(person);
-
-  }
-  function Deletar(id) {
+  async function Adicionar(){
     event.preventDefault();
-    if(id) {PersonService.deletar(id)}
+    console.log("função add");
+
+    const resultAPI = await api.get("/");
+
+    const user = resultAPI.data.results[0];
+
+    const nomeCompleto = `${user.name.first} ${user.name.last}`;
+    const avatar = `${user.picture.large}`;
+    const cell = `${user.cell}`;
+    
+
+    setDataRequest(nomeFull);
+    const resultSERVER = await server.post("user/", {
+      name: nomeCompleto,
+      imagem: avatar,
+      celular: cell,
+    });
+
+    console.log(resultSERVER);
+
   }
+
+  function Deletar(id) {
+
+  }
+
+  function Cache(id) {
+setCache(id)
+  }
+  
+
 
 
   return (
     <div className={style.container}>
 
-      <CardPerson
+    <CardPerson
     cover="https://images.unsplash.com/photo-1536227661368-deef57acf708?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
     avatar="https://github.com/WilliamSchreiner.png"
     name="William Schreiner"
@@ -69,6 +71,7 @@ export function Home() {
               <div  className={style.buttons}>
               <button  className={style.buttom} onClick={Adicionar}> <IoAdd /> </button>
               <button  className={style.buttom}> <IoPencil /> </button>
+              <button  className={style.buttom} onClick={Deletar(cache)}> <BsFillTrash3Fill /> </button>
               
             </div>
             </div>
@@ -91,10 +94,9 @@ export function Home() {
               persons.map(person => (
       <div>
         <CardContato key={person.id}
-    avatar= {person.avatar}
-    name= {person.name}
-    numero= {person.cell} />
-    <button  className={style.buttom} onClick={Deletar(person.id)}> <BsFillTrash3Fill /> </button>
+        avatar= {person.avatar}
+        name= {person.name}
+        numero= {person.cell}/>
     </div>
               ))
             }
