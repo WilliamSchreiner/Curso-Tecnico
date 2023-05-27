@@ -15,7 +15,7 @@ export function Home() {
 
    //list person
 
-   let persons = []
+   let [persons, setPersons] = useState([]);
    
    const [cache, setCache] = useState("");
 
@@ -27,7 +27,7 @@ export function Home() {
     const temp = await server.get("user/");
     console.log(temp)
 
-    persons = temp.data;
+    setPersons(temp.data);
     
     console.log(persons);
   }
@@ -44,11 +44,11 @@ export function Home() {
     const avatar = user.picture.large;
     const cell = user.cell;
     
-    const resultSERVER = await server.post("user/", {
-    name: nomeCompleto,
-    avatar: avatar,
-    celular: cell,
-    });
+    //const resultSERVER = await server.post("user/", {
+    //name: nomeCompleto,
+    //avatar: avatar,
+    //celular: cell,
+    //});
     Load();
   }
 
@@ -102,11 +102,12 @@ setCache(id)
   <div className={style.contatoCatalogo}>
 
   {
-              persons?.map((person, index) => (
-                <CardContato key= {index}
+              persons.map((person, index) => (
+              console.log(`itens do .map: ${person.celular}`),
+                <CardContato key={index}
                 avatar = {person.avatar}
                 name=  {person.name}
-                contato=  {person.celular}
+                celular=  {person.celular}
                 />
 
               ))
