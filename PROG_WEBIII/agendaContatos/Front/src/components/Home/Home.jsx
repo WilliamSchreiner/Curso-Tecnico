@@ -2,7 +2,7 @@
 import style from "./Home.module.css";
 //imports cards
 import { CardPerson } from "../User/CardPerson";
-import { CardContato } from "../Contato/CardContatos";
+import { CardContato, Delete } from "../Contato/CardContatos";
 //imports Icons
 import {BsFillTrash3Fill } from "react-icons/bs";
 import {IoPencil, IoSearchOutline, IoAdd } from "react-icons/io5";
@@ -12,13 +12,9 @@ import { api, server } from "../../api/axios";
 
 
 export function Home() {
-
-   //list person
-
+  
    let [persons, setPersons] = useState([]);
-   
-   const [cache, setCache] = useState("");
-
+ 
    useEffect(() => {
     Load()
 }, []);
@@ -34,7 +30,7 @@ export function Home() {
 
   async function Adicionar(){
     event.preventDefault();
-    console.log("função add");
+    console.log("função insert");
 
     const resultAPI = await api.get("/");
 
@@ -44,20 +40,19 @@ export function Home() {
     const avatar = user.picture.large;
     const cell = user.cell;
     
-    //const resultSERVER = await server.post("user/", {
-    //name: nomeCompleto,
-    //avatar: avatar,
-    //celular: cell,
-    //});
+    const resultSERVER = await server.post("user/", {
+    name: nomeCompleto,
+    avatar: avatar,
+    celular: cell,
+    });
     Load();
   }
 
-  function Deletar(id) {
+  async function Deletar(id) {
+  event.preventDefault();
 
-  }
-
-  function Cache(id) {
-setCache(id)
+  Delete();
+  Load();
   }
   
 
@@ -81,7 +76,7 @@ setCache(id)
               <div  className={style.buttons}>
               <button  className={style.buttom} onClick={Adicionar}> <IoAdd /> </button>
               <button  className={style.buttom}> <IoPencil /> </button>
-              <button  className={style.buttom} onClick={Deletar(cache)}> <BsFillTrash3Fill /> </button>
+              <button  className={style.buttom} onClick={Deletar}> <BsFillTrash3Fill /> </button>
               
             </div>
             </div>
@@ -103,11 +98,12 @@ setCache(id)
 
   {
               persons.map((person, index) => (
-              console.log(`itens do .map: ${person.celular}`),
-                <CardContato key={index}
-                avatar = {person.avatar}
-                name=  {person.name}
-                celular=  {person.celular}
+                <CardContato key= {index} 
+                avatar= {person.avatar}
+                name= {person.name}
+                celular= {person.celular}
+
+                id= {person.id}
                 />
 
               ))

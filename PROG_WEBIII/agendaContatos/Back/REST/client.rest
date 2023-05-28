@@ -15,7 +15,7 @@ content-type: application/json
 }
 
 ### Deletar um usuario pelo ID no banco
-DELETE  http://localhost:3333/user/2e794ad6-c8c6-4527-8bab-41a407ba6632
+DELETE  http://localhost:3333/user/87ef9cf8-aab4-47ec-ae88-626acf101352
 
 ### Atualizar um usuario pelo ID no Banco
 PUT  http://localhost:3333/user/1fbb9380-a094-4503-a255-db7a2f98a561
