@@ -1,21 +1,41 @@
 import React from "react";
-import { server } from "../../api/axios";
+import { server, api } from "../../api/axios";
 
 import styleContato from "./CardContatos.module.css";
 
-export let cache = '';
+ let cache = '';
 
  export async function Delete() {
-  event.preventDefault();
 
   if(cache ===''){
       console.log('Contato não definido')
   }else{
-    console.log("função delete " + cache);
+    console.log("função delete id: " + cache);
     await server.delete(`user/${cache}`);
   }
 
   }
+
+export async function Update(user) {
+
+  if(cache ===''){
+      console.log('Contato não definido')
+  }else{
+    console.log("função alterar id: " + cache);
+
+    const nomeCompleto = `${user.name.first} ${user.name.last}`;
+    const avatar = user.picture.large;
+    const cell = user.cell;
+    
+    await server.put(`user/${cache}`, {
+    name: nomeCompleto,
+    avatar: avatar,
+    celular: cell,
+    });
+  }
+
+  }
+
 
 export function CardContato({  avatar, name, celular, id}) {
 

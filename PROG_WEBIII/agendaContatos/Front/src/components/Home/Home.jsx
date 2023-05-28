@@ -2,7 +2,7 @@
 import style from "./Home.module.css";
 //imports cards
 import { CardPerson } from "../User/CardPerson";
-import { CardContato, Delete } from "../Contato/CardContatos";
+import { CardContato, Delete, Update } from "../Contato/CardContatos";
 //imports Icons
 import {BsFillTrash3Fill } from "react-icons/bs";
 import {IoPencil, IoSearchOutline, IoAdd } from "react-icons/io5";
@@ -40,20 +40,32 @@ export function Home() {
     const avatar = user.picture.large;
     const cell = user.cell;
     
-    const resultSERVER = await server.post("user/", {
+    await server.post("user/", {
     name: nomeCompleto,
     avatar: avatar,
     celular: cell,
     });
+
     Load();
   }
 
-  async function Deletar(id) {
+  async function Deletar() {
   event.preventDefault();
 
   Delete();
   Load();
   }
+
+  async function Editar() {
+    event.preventDefault();
+    
+    const resultAPI = await api.get("/");
+
+    const user = resultAPI.data.results[0];
+  
+    Update(user);
+    Load();
+    }
   
 
 
@@ -75,7 +87,7 @@ export function Home() {
             <h1 className={style.title}>Meus contatos</h1>
               <div  className={style.buttons}>
               <button  className={style.buttom} onClick={Adicionar}> <IoAdd /> </button>
-              <button  className={style.buttom}> <IoPencil /> </button>
+              <button  className={style.buttom} onClick={Editar}> <IoPencil /> </button>
               <button  className={style.buttom} onClick={Deletar}> <BsFillTrash3Fill /> </button>
               
             </div>
