@@ -14,7 +14,7 @@ import { api, server } from "../../api/axios";
 export function Home() {
 
   let [persons, setPersons] = useState([]);
-  let [nome, setNome] = useState('');
+  let [valor, setValor] = useState('');
 
   useEffect(() => {
     Load()
@@ -22,9 +22,9 @@ export function Home() {
 
   async function Load() {
     const temp = await server.get("user/");
-      console.log(temp)
 
     setPersons(temp.data);
+    console.log({persons});
   }
 
   async function Adicionar() {
@@ -55,21 +55,24 @@ export function Home() {
   }
 
   function Pesquisar() {
-    event.preventDefault();
-    console.log(`nome procurado ${nome}`);
-    Load();
+    event.preventDefault();  
 
-    if (nome === '') { console.log("Escreva algum nome.") }
-    const results = []
-    persons.map((user => {
-      console.log(user.name)
-      if(user.name.toLowerCase().includes(nome.toLowerCase())) {
-        results.push(user)
+    if (valor === '') { Load(); }
+    else{
+      console.log(`Nome ou celular procurado: ${valor}`);
+      let results = [];
+
+    persons.map((person => {
+  
+      if(person.name.toLowerCase().includes(valor.toLowerCase())) {
+        results.push(person);
         return
       }
     }))
+
     console.log({results})
     setPersons(results)
+    }
   }
 
   async function Editar() {
@@ -109,7 +112,7 @@ export function Home() {
             <div className={style.pesquisa}>
               <button className={style.buttomPesquisa} onClick={Pesquisar}> <IoSearchOutline /> </button>
 
-              <input type='text' name='pesquisa' className={style.inputPesquisa} placeholder="Busque por nome ou pelos dados do contato... " value={nome} onChange={() => { setNome(event.target.value) }} />
+              <input type='text' name='pesquisa' className={style.inputPesquisa} placeholder="Busque por nome ou pelos dados do contato... " value={valor} onChange={() => { setValor(event.target.value) }} />
             </div>
 
           </form>
