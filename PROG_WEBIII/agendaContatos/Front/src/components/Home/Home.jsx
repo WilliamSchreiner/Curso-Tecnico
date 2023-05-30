@@ -59,7 +59,7 @@ export function Home() {
 
     if (valor === '') { Load(); }
     else{
-      console.log(`Nome ou celular procurado: ${valor}`);
+      console.log(`Nome procurado: ${valor}`);
       let results = [];
 
     persons.map((person => {
@@ -112,7 +112,7 @@ export function Home() {
             <div className={style.pesquisa}>
               <button className={style.buttomPesquisa} onClick={Pesquisar}> <IoSearchOutline /> </button>
 
-              <input type='text' name='pesquisa' className={style.inputPesquisa} placeholder="Busque por nome ou pelos dados do contato... " value={valor} onChange={() => { setValor(event.target.value) }} />
+              <input type='text' name='pesquisa' className={style.inputPesquisa} placeholder="Busque pelo nome." value={valor} onChange={() => { setValor(event.target.value) }} />
             </div>
 
           </form>
