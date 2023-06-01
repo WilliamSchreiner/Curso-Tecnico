@@ -2,7 +2,7 @@
 import style from "./Home.module.css";
 //imports cards
 import { CardPerson } from "../User/CardPerson";
-import { CardContato, Delete, Update } from "../Contato/CardContatos";
+import { CardContato, Delete, Update, Insert } from "../Contato/CardContatos";
 //imports Icons
 import { BsFillTrash3Fill } from "react-icons/bs";
 import { IoPencil, IoSearchOutline, IoAdd } from "react-icons/io5";
@@ -30,27 +30,14 @@ export function Home() {
   async function Adicionar() {
     event.preventDefault();
 
-    const resultAPI = await api.get("/");
-
-    const user = resultAPI.data.results[0];
-
-    const nomeCompleto = `${user.name.first} ${user.name.last}`;
-    const avatar = user.picture.large;
-    const cell = user.cell;
-
-    await server.post("user/", {
-      name: nomeCompleto,
-      avatar: avatar,
-      celular: cell,
-    });
-
+    await Insert()
     Load();
   }
 
   async function Deletar() {
     event.preventDefault();
 
-    Delete();
+    await Delete();
     Load();
   }
 
@@ -78,11 +65,7 @@ export function Home() {
   async function Editar() {
     event.preventDefault();
 
-    const resultAPI = await api.get("/");
-
-    const user = resultAPI.data.results[0];
-
-    Update(user);
+    await Update();
     Load();
   }
 

@@ -16,12 +16,38 @@ import styleContato from "./CardContatos.module.css";
 
   }
 
-export async function Update(user) {
+  export async function Insert() {
+
+   
+      console.log("função insert");
+
+      
+    const resultAPI = await api.get("/");
+
+    const user = resultAPI.data.results[0];
+
+  
+      const nomeCompleto = `${user.name.first} ${user.name.last}`;
+      const avatar = user.picture.large;
+      const cell = user.cell;
+      
+      await server.post(`user/`, {
+      name: nomeCompleto,
+      avatar: avatar,
+      celular: cell,
+      });
+  
+    }
+
+export async function Update() {
 
   if(cache ===''){
       console.log('Contato não definido')
   }else{
     console.log("função alterar id: " + cache);
+    
+    const resultAPI = await api.get("/");
+    const user = resultAPI.data.results[0];
 
     const nomeCompleto = `${user.name.first} ${user.name.last}`;
     const avatar = user.picture.large;
