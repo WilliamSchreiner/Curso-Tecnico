@@ -1,6 +1,6 @@
 //import style
 import style from "./Home.module.css";
-//imports cards
+//imports cards e service pro Back
 import { CardPerson } from "../User/CardPerson";
 import { CardContato, Delete, Update, Insert } from "../Contato/CardContatos";
 //imports Icons
@@ -8,7 +8,7 @@ import { BsFillTrash3Fill } from "react-icons/bs";
 import { IoPencil, IoSearchOutline, IoAdd } from "react-icons/io5";
 
 import { useEffect, useState } from "react";
-import { api, server } from "../../api/axios";
+import { server } from "../../api/axios";
 
 
 export function Home() {
@@ -18,14 +18,33 @@ export function Home() {
 
   useEffect(() => {
     Load()
+   
   }, []);
 
   async function Load() {
     const temp = await server.get("user/");
 
-    setPersons(temp.data);
-    console.log({persons});
+    Ordenar(temp.data);
   }
+
+  function Ordenar(persons){
+    const alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' ];
+    const tempPerson = [];
+    let letraUsadas = [];
+
+    for(let i=0; i<=25; i++){
+        persons.map((person => {
+            if(person.name[0] === alfabeto[i]) {
+                letraUsadas.push(alfabeto[i]);
+                tempPerson.push(person);}
+                
+         }
+        ));
+    }
+    setPersons(tempPerson);
+      }
+
+  
 
   async function Adicionar() {
     event.preventDefault();

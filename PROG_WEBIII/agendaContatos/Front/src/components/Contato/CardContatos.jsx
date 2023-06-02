@@ -30,6 +30,8 @@ import styleContato from "./CardContatos.module.css";
       const nomeCompleto = `${user.name.first} ${user.name.last}`;
       const avatar = user.picture.large;
       const cell = user.cell;
+      const familia = user.name.first[0]
+      console.log(familia)
       
       await server.post(`user/`, {
       name: nomeCompleto,
