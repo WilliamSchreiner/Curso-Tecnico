@@ -122,12 +122,13 @@ export function Home() {
 
         <div className={style.listaContatos}>
 
-          <div className={style.listaCatalogo}>
-            <h1 className={style.letraCatalogo}>All</h1>
-            <div className={style.contatoCatalogo}>
 
               {
                 persons.map((person, index) => (
+                   <div className={style.listaCatalogo}>
+            <h1 className={style.letraCatalogo}>{person.name[0]}</h1>
+            <div className={style.contatoCatalogo}>
+
                   <CardContato key={index}
                     avatar={person.avatar}
                     name={person.name}
@@ -135,13 +136,13 @@ export function Home() {
 
                     id={person.id}
                   />
+                  </div>
+          </div>
 
                 ))
               }
 
-            </div>
-          </div>
-
+    
 
         </div>
       </div>
