@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet,TextInput, Touchable, TouchableOpacity} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { Participante } from '../components/Participantes';
 
 export function Home() {
     function handleParicipantAdd () {
@@ -25,7 +26,9 @@ console.log('ta on')
             
 
             <View>
-
+                <Participante  name='Willianzin'></Participante>
+                <Participante  name='willianzin2.0'></Participante>
+                <Participante  name='willianzin3.0'></Participante>
             </View>
         </View>
     )
@@ -48,6 +51,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginTop: 48,
+    
     },
     subTitle: {
         color: 'gray',
@@ -57,6 +61,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         fontSize: 16,
         marginTop: 2,
+        marginLeft: 18
     },
     boxInput: {
         marginTop: 36,
