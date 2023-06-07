@@ -1,34 +1,53 @@
 import { View, Text, StyleSheet,TextInput, Touchable, TouchableOpacity} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Participante } from '../components/Participantes';
+import { useState } from 'react';
 
 export function Home() {
-    function handleParicipantAdd () {
-console.log('ta on')
+    const [name, setName] = useState('William');
+    const [participantes, setParticipantes] = useState([])
+
+    function handleParicipantAdd(name) {
+        setName(name)
     }
+
+    function handleParicipantDelete(name) {
+        console.log(`deletado ${name}`)
+            }
+
     return (
         <View style={styles.container}>
             <StatusBar style='auto'/>
+            
             <View  style={styles.header}>
             <Text style={styles.title}> Nome do Evento</Text>
             <Text style={styles.subTitle}> Sexta, 2 de junho</Text>
             </View>
 
             <View style={styles.boxInput}>
-                <TextInput style={styles.input}
-            placeholder='Nome do Participante...'
-            placeholderTextColor={'#fff'}></TextInput>
 
-            <TouchableOpacity style={styles.button} onPress={handleParicipantAdd}>
+            <TextInput 
+            style={styles.input}
+            placeholder='Nome do Participante...'
+            placeholderTextColor={'#fff'}
+            value={name}
+            onChange={() => { setName(event.target.value)}}>
+                
+            </TextInput>
+
+            <TouchableOpacity 
+            style={styles.button} 
+            onPress={handleParicipantAdd}>
                 <Text  style={styles.buttonText}> + </Text>
             </TouchableOpacity>
+
             </View>
-            
 
             <View>
-                <Participante  name='Willianzin'></Participante>
-                <Participante  name='willianzin2.0'></Participante>
-                <Participante  name='willianzin3.0'></Participante>
+                
+ <Participante  name={name} participantRemove={handleParicipantDelete}/>
+                  
+               
             </View>
         </View>
     )

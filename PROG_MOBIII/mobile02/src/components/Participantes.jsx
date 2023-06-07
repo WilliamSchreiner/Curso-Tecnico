@@ -1,9 +1,6 @@
-import {Text, View, TextInput, TouchableOpacity, StyleSheet} from 'react-native'
+import {Text, View, TouchableOpacity, StyleSheet} from 'react-native'
 
-export function Participante({name}){
-    function handleParicipantAdd () {
-        console.log('ta on')
-            }
+export function Participante({name, participantRemove}){
             
     return(
         <View style={styles.container}>
@@ -11,7 +8,9 @@ export function Participante({name}){
                 {name}
             </Text>
 
-            <TouchableOpacity style={styles.button} onPress={handleParicipantAdd}>
+            <TouchableOpacity 
+            style={styles.button} 
+            onPress={()=>{participantRemove(name)}}>
                 <Text  style={styles.buttonText}> - </Text>
             </TouchableOpacity>
             </View>
