@@ -1,19 +1,20 @@
-import { View, Text, StyleSheet,TextInput, Touchable, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet,TextInput, TouchableOpacity, FlatList } from 'react-native';
+// a diferença entre faltlist e scrollview é a renderização, flatlist é mais benefico em questao de requerimento de renderização.
 import { StatusBar } from 'expo-status-bar';
 import { Participante } from '../components/Participantes';
 import { useState } from 'react';
 
 export function Home() {
-    const [name, setName] = useState('William');
-    const [participantes, setParticipantes] = useState([])
+    const [name, setName] = useState('');
+    const [participantes, setParticipantes] = useState(["Fulano", "Fulane", "João", "Maria", "Ana", "Onix"])
 
     function handleParicipantAdd(name) {
-        setName(name)
+        console.log(`add ${name}`)
     }
 
     function handleParicipantDelete(name) {
         console.log(`deletado ${name}`)
-            }
+    }
 
     return (
         <View style={styles.container}>
@@ -37,7 +38,7 @@ export function Home() {
 
             <TouchableOpacity 
             style={styles.button} 
-            onPress={handleParicipantAdd}>
+            onPress={()=>handleParicipantAdd(name)}>
                 <Text  style={styles.buttonText}> + </Text>
             </TouchableOpacity>
 
@@ -45,8 +46,20 @@ export function Home() {
 
             <View>
                 
- <Participante  name={name} participantRemove={handleParicipantDelete}/>
-                  
+                  <FlatList
+                  data={participantes}
+                  keyExtractor={(item)=> item}
+                  renderItem={({item})=> (
+            <Participante key={item} 
+            name={item} 
+            participantRemove={()=>handleParicipantDelete(item)} />
+            )}
+                  ListFooterComponent={()=>{
+                    <Text>
+                        adicione algum participante. 
+                    </Text>
+                  }}
+                   />
                
             </View>
         </View>
