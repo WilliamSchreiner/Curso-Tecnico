@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 export function Home() {
     const [name, setName] = useState('');
-    const [participantes, setParticipantes] = useState(["Fulano", "Fulane", "João", "Maria", "Ana", "Onix"])
+    const [participantes, setParticipantes] = useState([])
 
     function handleParicipantAdd(name) {
         if (participantes.includes(name)){
