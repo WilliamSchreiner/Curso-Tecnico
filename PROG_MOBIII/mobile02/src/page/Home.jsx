@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet,TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, StyleSheet,TextInput, TouchableOpacity, FlatList, Alert } from 'react-native';
 // a diferença entre faltlist e scrollview é a renderização, flatlist é mais benefico em questao de requerimento de renderização.
 import { StatusBar } from 'expo-status-bar';
 import { Participante } from '../components/Participantes';
@@ -9,11 +9,27 @@ export function Home() {
     const [participantes, setParticipantes] = useState(["Fulano", "Fulane", "João", "Maria", "Ana", "Onix"])
 
     function handleParicipantAdd(name) {
+        if (participantes.includes(name)){
+        Alert.alert(`${name} já existe`)
+        console.log(`${name} já existe`)
+        }else{
         console.log(`add ${name}`)
+        setParticipantes((prevState)=> [...prevState, name]);
+    }
     }
 
     function handleParicipantDelete(name) {
-        console.log(`deletado ${name}`)
+        Alert.alert("Remover", `Deseja remover ${name}?`,[
+            {
+                text:'sim',
+                onPress: ()=>Alert.alert('ok, deletado')
+            },
+            {
+                text:'sim',
+                onPress: ()=>Alert.alert('deletado')
+            }
+        ])
+        
     }
 
     return (
