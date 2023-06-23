@@ -10,23 +10,30 @@ export function Home() {
 
     function handleParicipantAdd(name) {
         if (participantes.includes(name)){
-        Alert.alert(`${name} já existe`)
-        console.log(`${name} já existe`)
-        }else{
-        console.log(`add ${name}`)
+        Alert.alert(`${name} já existe`);
+        console.log(`${name} já existe`);
+        }else if (name === ""){
+            Alert.alert(`Write a name.`);
+            console.log(`Write a name.`);
+        }else {
+        console.log(`add ${name}`);
         setParticipantes((prevState)=> [...prevState, name]);
-    }
+        };
     }
 
     function handleParicipantDelete(name) {
-        Alert.alert("Remover", `Deseja remover ${name}?`,[
+        Alert.alert("Remover", `You want remove ${name}?`,[
             {
                 text:'sim',
-                onPress: ()=>Alert.alert('ok, deletado')
+                onPress: ()=> {
+                    setParticipantes(prevState => (
+                        prevState.filter(participantName => participantName !== name)
+                    ))
+                }       
             },
             {
-                text:'sim',
-                onPress: ()=>Alert.alert('deletado')
+                text:'não',
+                onPress: ()=>Alert.alert('ok, canceled.')
             }
         ])
         
@@ -48,7 +55,7 @@ export function Home() {
             placeholder='Nome do Participante...'
             placeholderTextColor={'#fff'}
             value={name}
-            onChange={() => { setName(event.target.value)}}>
+            onChangeText={setName}>
                 
             </TextInput>
 
@@ -135,7 +142,6 @@ const styles = StyleSheet.create({
         height: 56,
         borderRadius: 5,
         backgroundColor: '#31cf67',
-        textAlign: 'center',
         justifyContent: 'center',
         shadowColor: '#31B345',
         shadowOffset: {width: 5, height: 4},
@@ -145,6 +151,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 24,
         color: '#fff',
+        marginLeft: 14
     }
   });
   
