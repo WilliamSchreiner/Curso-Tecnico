@@ -1,0 +1,42 @@
+{
+    "_id": "d89181a3-411a-441d-9a74-f30e462f5701",
+    "colName": "dev",
+    "created": "2023-07-01T00:59:32.036Z",
+    "sortNum": 10000,
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a5b80f6b-3e37-4f53-8cd7-e94092edc959",
+            "colId": "d89181a3-411a-441d-9a74-f30e462f5701",
+            "containerId": "",
+            "name": "getAll",
+            "url": "{{urlbase}}",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-07-01T00:59:45.122Z",
+            "modified": "2023-07-01T01:00:47.923Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f1b9c783-9b05-4bec-984b-f88f0473154a",
+            "colId": "d89181a3-411a-441d-9a74-f30e462f5701",
+            "containerId": "",
+            "name": "createUser",
+            "url": "{{urlbase}}",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-07-01T01:06:16.880Z",
+            "modified": "2023-07-01T01:08:52.816Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"name\":\"xxx\",\n \"emial\": \"xxx@mial.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

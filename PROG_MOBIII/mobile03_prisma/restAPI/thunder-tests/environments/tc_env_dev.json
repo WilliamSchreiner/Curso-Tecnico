@@ -1,0 +1,14 @@
+{
+    "_id": "1c2bbd73-ebd7-4912-b23d-7e01a12e1ee0",
+    "name": "dev",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2023-07-01T00:56:01.511Z",
+    "modified": "2023-07-01T00:56:01.511Z",
+    "data": [
+        {
+            "name": "urlbase",
+            "value": "http://localhost:3000"
+        }
+    ]
+}
