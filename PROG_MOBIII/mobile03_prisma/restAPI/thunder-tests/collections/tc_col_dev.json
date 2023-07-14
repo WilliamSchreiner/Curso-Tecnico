@@ -1,41 +1,78 @@
 {
-    "_id": "d89181a3-411a-441d-9a74-f30e462f5701",
-    "colName": "dev",
-    "created": "2023-07-01T00:59:32.036Z",
+    "_id": "fdd39ba1-3674-4b7a-9bac-ff21a535b22b",
+    "colName": "Dev",
+    "created": "2023-07-01T00:58:58.845Z",
     "sortNum": 10000,
     "folders": [],
     "requests": [
         {
-            "_id": "a5b80f6b-3e37-4f53-8cd7-e94092edc959",
-            "colId": "d89181a3-411a-441d-9a74-f30e462f5701",
+            "_id": "e9d83d56-f5a4-4713-88f3-df7fc103810c",
+            "colId": "fdd39ba1-3674-4b7a-9bac-ff21a535b22b",
             "containerId": "",
             "name": "getAll",
-            "url": "{{urlbase}}",
+            "url": "{{urlBase}}/",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2023-07-01T00:59:45.122Z",
-            "modified": "2023-07-01T01:00:47.923Z",
+            "created": "2023-07-01T00:59:10.685Z",
+            "modified": "2023-07-08T01:24:27.609Z",
             "headers": [],
             "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "alskdlknslnaslknasld"
+            },
             "tests": []
         },
         {
-            "_id": "f1b9c783-9b05-4bec-984b-f88f0473154a",
-            "colId": "d89181a3-411a-441d-9a74-f30e462f5701",
+            "_id": "951651c4-2b37-450d-abfb-3f2e26785ea1",
+            "colId": "fdd39ba1-3674-4b7a-9bac-ff21a535b22b",
             "containerId": "",
             "name": "createUser",
-            "url": "{{urlbase}}",
+            "url": "{{urlBase}}",
             "method": "POST",
             "sortNum": 20000,
-            "created": "2023-07-01T01:06:16.880Z",
-            "modified": "2023-07-01T01:08:52.816Z",
+            "created": "2023-07-01T01:06:13.923Z",
+            "modified": "2023-07-01T01:07:07.157Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n \"name\":\"xxx\",\n \"emial\": \"xxx@mial.com\"\n}",
+                "raw": "{\n  \"name\":\"Vitor\",\n  \"email\":\"vitor@fema.com.br\"\n}",
                 "form": []
             },
+            "tests": []
+        },
+        {
+            "_id": "d24c86c4-7aec-4155-9f67-89dc45e99a70",
+            "colId": "fdd39ba1-3674-4b7a-9bac-ff21a535b22b",
+            "containerId": "",
+            "name": "updateUser",
+            "url": "{{urlBase}}/8a3054eb-4215-4222-8c39-71bc70cc1512",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-07-07T23:43:45.538Z",
+            "modified": "2023-07-07T23:46:23.483Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Batatinha123\",\n  \"email\":\"batatinhaFrita@fema.com.br\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b4e88410-7449-4e53-9ebb-f9912d3b9678",
+            "colId": "fdd39ba1-3674-4b7a-9bac-ff21a535b22b",
+            "containerId": "",
+            "name": "deleteUser",
+            "url": "{{urlBase}}/e50822e0-d128-49e5-91fe-1fc9c4e68821",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-07-08T00:52:23.865Z",
+            "modified": "2023-07-08T00:53:30.378Z",
+            "headers": [],
+            "params": [],
             "tests": []
         }
     ]

@@ -1,44 +1,25 @@
-import express  from "express";
-import {PrismaClient} from "@prisma/client";
+import express from "express";
 
-const server =  express();
-const port = 3000;
-const prisma = new PrismaClient;
+const server = express();
+const port = 3333;
 
-interface IRequest {
-    name: string;
-    email: string
-}
+server.use(express.json());
 
-server.use(express.json())
+// interceptador de rotas
+server.use((req, res, next) => {
+  console.log(
+    `[${new Date().getTime()}] - ${
+      req.headers["x-forwarded-for"] || req.socket.remoteAddress
+    } - ${req.method} - ${req.originalUrl}`
+  );
+  next();
+});
 
-server.get('/', async (req, res) => {
-    const getAll = await prisma.user.findMany();
-
-    res.json(getAll)
-})
-
-server.post('/', async (req, res) => {
-   const {name, email}: IRequest = req.body;
-
-   const userExist = await prisma.user.findFirst({
-    where:{
-        email
-    }
-   })
-
-   if(!userExist) return res.status(404).json({error: true, massage: "usuario ja existe."});
-   
-   const createUser = await prisma.user.create({
-    data: {
-        name,
-        email
-    }
-   })
-   res.json(createUser)
-})
-
+// interceptado de rota (Erro)
+server.use((req, res, next) => {
+  res.status(404).json({ message: "Erro ao acessar a rota!" });
+});
 
 server.listen(port, () => {
-    console.log(`Server ta online - <(+ _ +)> - http://localhost:${port}`)
-})
+  console.log(`Server in running - http://localhost:${port} `);
+});
