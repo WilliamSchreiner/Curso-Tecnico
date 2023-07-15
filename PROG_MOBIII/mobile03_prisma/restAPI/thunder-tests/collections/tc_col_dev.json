@@ -10,11 +10,11 @@
             "colId": "fdd39ba1-3674-4b7a-9bac-ff21a535b22b",
             "containerId": "",
             "name": "getAll",
-            "url": "{{urlBase}}/",
+            "url": "{{urlBase}}/user/getall",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-07-01T00:59:10.685Z",
-            "modified": "2023-07-08T01:24:27.609Z",
+            "modified": "2023-07-15T01:12:00.196Z",
             "headers": [],
             "params": [],
             "auth": {
@@ -28,16 +28,16 @@
             "colId": "fdd39ba1-3674-4b7a-9bac-ff21a535b22b",
             "containerId": "",
             "name": "createUser",
-            "url": "{{urlBase}}",
+            "url": "{{urlBase}}/user/register",
             "method": "POST",
             "sortNum": 20000,
             "created": "2023-07-01T01:06:13.923Z",
-            "modified": "2023-07-01T01:07:07.157Z",
+            "modified": "2023-07-15T01:11:31.770Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\":\"Vitor\",\n  \"email\":\"vitor@fema.com.br\"\n}",
+                "raw": "{\n  \"name\":\"Vitor\",\n  \"email\":\"vitor@fema.com.br\",\n  \"password\":\"123456\"\n}",
                 "form": []
             },
             "tests": []
@@ -73,6 +73,26 @@
             "modified": "2023-07-08T00:53:30.378Z",
             "headers": [],
             "params": [],
+            "tests": []
+        },
+        {
+            "_id": "90de2bfe-212c-4b7a-bb63-21c71e83a6bd",
+            "colId": "fdd39ba1-3674-4b7a-9bac-ff21a535b22b",
+            "containerId": "",
+            "name": "authenticateUser",
+            "url": "{{urlBase}}/user/autenticate?senha=123456",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-07-15T01:18:39.177Z",
+            "modified": "2023-07-15T01:22:50.627Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "senha",
+                    "value": "123456",
+                    "isPath": false
+                }
+            ],
             "tests": []
         }
     ]

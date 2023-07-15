@@ -1,5 +1,5 @@
 import express from "express";
-
+import { router } from "./routes";
 const server = express();
 const port = 3333;
 
@@ -14,6 +14,8 @@ server.use((req, res, next) => {
   );
   next();
 });
+
+server.use(router);
 
 // interceptado de rota (Erro)
 server.use((req, res, next) => {

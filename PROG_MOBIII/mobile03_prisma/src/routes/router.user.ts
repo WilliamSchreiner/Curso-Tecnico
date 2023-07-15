@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { Router } from "express";
+import { sign } from "jsonwebtoken";
 import { EnsureAuthenticateUser } from "../middlewares/EnsureAuthenticateUser";
 
 const userRoute = Router();
@@ -12,7 +13,7 @@ interface IRequestBody {
 }
 
 // Busca por usuarios
-userRoute.get("/getall", EnsureAuthenticateUser, async (req, res) => {
+userRoute.get("/getall", async (req, res) => {
   const getAll = await prisma.user.findMany();
 
   res.json(getAll);
@@ -55,8 +56,35 @@ userRoute.get("/", EnsureAuthenticateUser, async (req, res) => {
   res.json(getSearch);
 });
 
+// Autenticar um usuario
+userRoute.post("/autenticate", async (req, res) => {
+  const { password, email }: IRequestBody = req.body;
+
+  const userExist = await prisma.user.findFirst({
+    where: {
+      email,
+    },
+  });
+
+  if (!userExist)
+    return res
+      .status(404)
+      .json({ error: true, message: "Email ou senha incorreta" });
+
+  if (userExist.password !== password)
+    return res
+      .status(404)
+      .json({ error: true, massage: "Email ou senha invalida" });
+  const token = sign({ email: userExist.email }, "ChaveSecreta", {
+    subject: userExist.id,
+    expiresIn: "1d",
+  });
+
+  res.json(token);
+});
+
 // Registrar um usuario
-userRoute.post("/", async (req, res) => {
+userRoute.post("/register", async (req, res) => {
   const { name, password, email }: IRequestBody = req.body;
 
   const userExist = await prisma.user.findFirst({
@@ -152,3 +180,5 @@ userRoute.get("/", async (req, res) => {
 
   res.json(getAll);
 });
+
+export { userRoute };
