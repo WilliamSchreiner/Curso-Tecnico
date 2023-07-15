@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 interface IRequestBody {
   name: string;
   email: string;
-  senha?: string;
+  password: string;
 }
 
 // Busca por usuarios
@@ -55,14 +55,9 @@ userRoute.get("/", EnsureAuthenticateUser, async (req, res) => {
   res.json(getSearch);
 });
 
-userRoute.get("/", async (req, res) => {
-  const getAll = await prisma.user.findMany();
-
-  res.json(getAll);
-});
-
+// Registrar um usuario
 userRoute.post("/", async (req, res) => {
-  const { name, email }: IRequestBody = req.body;
+  const { name, password, email }: IRequestBody = req.body;
 
   const userExist = await prisma.user.findFirst({
     where: {
@@ -77,14 +72,17 @@ userRoute.post("/", async (req, res) => {
     data: {
       name,
       email,
+      password,
     },
   });
 
   res.json(createUser);
 });
 
-userRoute.put("/:id", async (req, res) => {
-  const { name, email }: IRequestBody = req.body;
+// Atualizar um usuario
+
+userRoute.put("/:id", EnsureAuthenticateUser, async (req, res) => {
+  const { name, email, password }: IRequestBody = req.body;
   const { id } = req.params;
 
   const userExist = await prisma.user.findFirst({
@@ -96,17 +94,31 @@ userRoute.put("/:id", async (req, res) => {
   if (!userExist)
     return res.status(400).json({ error: true, message: "Usuário não existe" });
 
+  let newInfo: IRequestBody = { name: "", email: "", password: "" };
+
+  name === undefined || name === userExist.name
+    ? (newInfo.name = userExist.name!)
+    : (newInfo.name = name);
+  email === undefined || email === userExist.email
+    ? (newInfo.email = userExist.email!)
+    : (newInfo.email = email);
+  password === undefined || password === userExist.password
+    ? (newInfo.password = userExist.password!)
+    : (newInfo.password = password);
+
   const updateUser = await prisma.user.update({
     where: {
       id,
     },
     data: {
-      name,
-      email,
+      name: newInfo.name,
+      email: newInfo.email,
+      password: newInfo.password,
     },
     select: {
       name: true,
       email: true,
+      password: true,
       post: true,
     },
   });
@@ -114,7 +126,8 @@ userRoute.put("/:id", async (req, res) => {
   res.json(updateUser);
 });
 
-userRoute.delete("/:id", async (req, res) => {
+// deletar usuario
+userRoute.delete("/:id", EnsureAuthenticateUser, async (req, res) => {
   const { id } = req.params;
 
   const userExist = await prisma.user.findFirst({
@@ -133,4 +146,9 @@ userRoute.delete("/:id", async (req, res) => {
   });
 
   res.json(deleteUser);
+});
+userRoute.get("/", async (req, res) => {
+  const getAll = await prisma.user.findMany();
+
+  res.json(getAll);
 });
